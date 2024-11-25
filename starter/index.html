@@ -1,173 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/css.css">
-    <title>FutChampions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./assets/css/css.css" />
+  <title>FutChampions</title>
 </head>
+
 <body>
-    <section class="d-flex">
+  <section style="padding: 50px" class="d-flex">
     <!-- affichage de l'equipe -->
-    <div style="background-image: url('./assets/img/stadium_background.webp'); background-position: center; background-repeat: no-repeat; height: 100vh; width: 100%;" class="text-white">
-        
-        <!-- Defense -->
-        <div style="width: 50%; margin: auto;" id="parent-defance" class="d-flex justify-content-center align-items-center">
-            <div class="position-relative">
-                <div class="player">LB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">CB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">CB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">RB</div>
-            </div>
+    <div style="
+          background-image: url('./assets/img/stadium_background.webp');
+          background-repeat: no-repeat;
+          height: 100vh;
+          width: 100%;
+        " class="text-white">
+      <!-- Defense -->
+      <div style="width: 50%; margin: auto" id="parent-defance"
+        class="d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="player">LB</div>
         </div>
-        <!-- Attack -->
-        <div style="width: 50%; margin: auto;" id="parent-attack" class="d-flex justify-content-center align-items-center">
-            <div class="position-relative">
-                <div class="player">LWF</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">ST</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">RWF</div>
-            </div>
+        <div class="position-relative">
+          <div class="player">CB</div>
         </div>
-    
-        <!-- Milieu -->
-        <div style="width: 50%; margin: auto;" id="parent-milieu" class="d-flex justify-content-center align-items-center">
-            <div class="position-relative">
-                <div class="player">CMF</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">DMF</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">CMF</div>
-            </div>
+        <div class="position-relative">
+          <div class="player">CB</div>
         </div>
-    
-        <!-- Defense -->
-        <div style="width: 50%; margin: auto;" id="parent-defance" class="d-flex justify-content-center align-items-center">
-            <div class="position-relative">
-                <div class="player">LB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">CB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">CB</div>
-            </div>
-            <div class="position-relative">
-                <div class="player">RB</div>
-            </div>
+        <div class="position-relative">
+          <div class="player">RB</div>
         </div>
-    
-        <!-- Goalkeeper -->
-        <div style="width: 50%; margin: auto;" id="parent-gk" class="d-flex justify-content-center align-items-center">
-            <div class="position-relative">
-                <div class="player">GK</div>
-            </div>
+      </div>
+      <!-- Attack -->
+      <div style="width: 50%; margin: auto" id="parent-attack" class="d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="player">LWF</div>
         </div>
-    </div>
-
-
-    <!-- formulaire -->
-    <div class="container h-100 ">
-        <div class="row justify-content-center align-items-center h-100">
-          <div class="col-lg-8 col-xl-6">
-            <div class="card shadow-lg border-0">
-              <div class="position-relative">
-                <img 
-                  src="./assets/img/FutChampions.webp" 
-                  class="w-100 rounded-top" 
-                  alt="Sample photo" 
-                  style="height: 200px; object-fit: cover;">
-                <button 
-                  type="button" 
-                  class="btn btn-success btn-sm position-absolute top-0 start-50 translate-middle-x">
-                  Add Player
-                </button>
-              </div>
-      
-              <div class="card-body bg-white p-4">
-                <div class="text-center mb-4">
-                  <h3 class="text-dark fw-bold">Team Settings</h3>
-                  <p class="text-muted small">Customize your team strategy and settings below.</p>
-                </div>
-                <form>
-                  <div class="mb-4">
-                    <label class="form-label fw-semibold" for="formationSelect">Formation</label>
-                    <select id="formationSelect" class="form-select shadow-sm">
-                      <option value="formation1">4-3-3</option>
-                      <option value="formation2">4-4-2</option>
-                    </select>
-                  </div>
-                  <div class="mb-4">
-                    <label class="form-label fw-semibold" for="buildUpStyleSelect">Build Up Style</label>
-                    <select id="buildUpStyleSelect" class="form-select shadow-sm">
-                      <option value="">Balanced</option>
-                      <option value="">Counter</option>
-                      <option value="">Short passing</option>
-                    </select>
-                    <small class="text-muted">Control how your team builds play.</small>
-                  </div>
-
-
-                  <div class="mb-4">
-                    <label class="form-label fw-semibold" for="defensiveApproachSelect">Defensive Approach</label>
-                    <select id="defensiveApproachSelect" class="form-select shadow-sm">
-                      <option value="">Balanced</option>
-                      <option value="">Deep</option>
-                      <option value="">High</option>
-                      <option value="">Aggressive</option>
-                    </select>
-                    <small class="text-muted">Choose your team’s defensive strategy.</small>
-                  </div>
-      
-                  <div class="text-center mt-4">
-                    <button 
-                      type="button" 
-                      class="btn btn-primary btn-sm px-5 shadow-sm">
-                      Save Settings
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div class="position-relative">
+          <div class="player mb-5">ST</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">RWF</div>
         </div>
       </div>
 
-        <!-- form  -->
-        <div id="form-div" 
-            class="d-none col-lg-4 col-md-6 col-sm-8 col-11 bg-white p-4 rounded position-absolute top-50 start-50 translate-middle shadow"
-            style="max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
-        <form>
+      <!-- Milieu -->
+      <div style="width: 50%; margin: auto" id="parent-milieu" class="d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="player">CMF</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">DMF</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">CMF</div>
+        </div>
+      </div>
+
+      <!-- Defense -->
+      <div style="width: 50%; margin: auto" id="parent-defance"
+        class="d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="player">LB</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">CB</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">CB</div>
+        </div>
+        <div class="position-relative">
+          <div class="player">RB</div>
+        </div>
+      </div>
+
+      <!-- Goalkeeper -->
+      <div style="width: 50%; margin: auto" id="parent-gk" class="d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="player">efzefz</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- formulaire -->
+    <div class="container w-50 h-100 bg-dark text-light py-3">
+      <div class="row justify-content-center align-items-center h-100">
+            <div class="position-relative">
+              <img src="./assets/img/FutChampions.webp" class="w-100 rounded-top" alt="Sample photo"
+                style="height: 200px; object-fit: cover;">
+              <button type="button" class="btn btn-dark btn-sm position-absolute top-0 start-50 translate-middle-x">
+                Add Player
+              </button>
+            </div>
+            <div class="card-body bg-dark text-light p-4">
+              <div class="text-center mb-4">
+                <h3 class="text-light fw-bold">Team Settings</h3>
+                <p class="text-muted small">Customize your team strategy and settings below.</p>
+              </div>
+              <form>
+                <div class="mb-4">
+                  <label class="form-label fw-semibold text-light" for="formationSelect">Formation</label>
+                  <select id="formationSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                    <option value="formation1">4-3-3</option>
+                    <option value="formation2">4-4-2</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label fw-semibold text-light" for="buildUpStyleSelect">Build Up Style</label>
+                  <select id="buildUpStyleSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                    <option value="">Balanced</option>
+                    <option value="">Counter</option>
+                    <option value="">Short passing</option>
+                  </select>
+                  <small class="text-muted">Control how your team builds play.</small>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label fw-semibold text-light" for="defensiveApproachSelect">Defensive
+                    Approach</label>
+                  <select id="defensiveApproachSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                    <option value="">Balanced</option>
+                    <option value="">Deep</option>
+                    <option value="">High</option>
+                    <option value="">Aggressive</option>
+                  </select>
+                  <small class="text-muted">Choose your team’s defensive strategy.</small>
+                </div>
+
+                <div class="text-center mt-4">
+                  <button type="button" class="btn btn-primary btn-sm px-5 shadow-sm">
+                    Save Settings
+                  </button>
+                </div>
+              </form>
+            </div>
+      </div>
+    </div>
+
+
+    <!-- form  -->
+    <div id="form-div"
+      class="d-none col-lg-4 col-md-6 col-sm-8 col-11 bg-white p-4 rounded position-absolute top-50 start-50 translate-middle shadow"
+      style="max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto">
+      <form>
         <h3 class="text-center mb-4">Add Player</h3>
 
-
         <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter player name">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter player name" />
         </div>
 
-    
         <div class="mb-3">
-        <label for="photo" class="form-label">Choose a Photo</label>
-        <input type="file" class="form-control" id="photo">
+          <label for="photo" class="form-label">Choose a Photo</label>
+          <input type="file" class="form-control" id="photo" />
         </div>
 
-      
         <div class="mb-3">
-        <label for="level" class="form-label">Position</label>
-        <select id="level" class="form-select">
+          <label for="level" class="form-label">Position</label>
+          <select id="level" class="form-select">
             <option selected value="Please select">Please select</option>
             <option value="GK">GK</option>
             <option value="ST">ST</option>
@@ -178,87 +172,78 @@
             <option value="CMF">CMF</option>
             <option value="DMF">DMF</option>
             <option value="CB">CB</option>
-        </select>
+          </select>
         </div>
-
 
         <div class="mb-3">
-        <label for="nationality" class="form-label">Nationality</label>
-        <input type="text" class="form-control" id="nationality" placeholder="Enter nationality">
+          <label for="nationality" class="form-label">Nationality</label>
+          <input type="text" class="form-control" id="nationality" placeholder="Enter nationality" />
         </div>
-
-     
-        <div class="mb-3">
-        <label for="flag" class="form-label">Choose a Flag</label>
-        <input type="file" class="form-control" id="flag">
-        </div>
-
 
         <div class="mb-3">
-        <label for="club" class="form-label">Club</label>
-        <input type="text" class="form-control" id="club" placeholder="Enter club name">
+          <label for="flag" class="form-label">Choose a Flag</label>
+          <input type="file" class="form-control" id="flag" />
         </div>
-
 
         <div class="mb-3">
-        <label for="logo" class="form-label">Choose Logo</label>
-        <input type="file" class="form-control" id="logo">
+          <label for="club" class="form-label">Club</label>
+          <input type="text" class="form-control" id="club" placeholder="Enter club name" />
         </div>
 
-    
+        <div class="mb-3">
+          <label for="logo" class="form-label">Choose Logo</label>
+          <input type="file" class="form-control" id="logo" />
+        </div>
+
         <div class="mb-4">
-        <h5>Player Ratings :</h5>
-        <div class="row g-3">
+          <h5>Player Ratings :</h5>
+          <div class="row g-3">
             <div class="col-md-4">
-                <label for="rating" class="form-label">Rating</label>
-                <input type="number" class="form-control" id="rating">
+              <label for="rating" class="form-label">Rating</label>
+              <input type="number" class="form-control" id="rating" />
             </div>
             <div class="col-md-4">
-                <label for="diving" class="form-label">Diving</label>
-                <input type="number" class="form-control" id="diving">
+              <label for="diving" class="form-label">Diving</label>
+              <input type="number" class="form-control" id="diving" />
             </div>
             <div class="col-md-4">
-                <label for="handling" class="form-label">Handling</label>
-                <input type="number" class="form-control" id="handling">
+              <label for="handling" class="form-label">Handling</label>
+              <input type="number" class="form-control" id="handling" />
             </div>
             <div class="col-md-4">
-                <label for="kicking" class="form-label">Kicking</label>
-                <input type="number" class="form-control" id="kicking">
+              <label for="kicking" class="form-label">Kicking</label>
+              <input type="number" class="form-control" id="kicking" />
             </div>
             <div class="col-md-4">
-                <label for="reflexes" class="form-label">Reflexes</label>
-                <input type="number" class="form-control" id="reflexes">
+              <label for="reflexes" class="form-label">Reflexes</label>
+              <input type="number" class="form-control" id="reflexes" />
             </div>
             <div class="col-md-4">
-                <label for="speed" class="form-label">Speed</label>
-                <input type="number" class="form-control" id="speed">
+              <label for="speed" class="form-label">Speed</label>
+              <input type="number" class="form-control" id="speed" />
             </div>
             <div class="col-md-4">
-                <label for="positioning" class="form-label">Positioning</label>
-                <input type="number" class="form-control" id="positioning">
+              <label for="positioning" class="form-label">Positioning</label>
+              <input type="number" class="form-control" id="positioning" />
             </div>
+          </div>
         </div>
-        </div>
-
 
         <div class="d-flex justify-content-between">
-        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-secondary" id="cancel">Cancel</button>
+          <button id="submit" type="submit" class="btn btn-primary">
+            Submit
+          </button>
+          <button type="button" class="btn btn-secondary" id="cancel">
+            Cancel
+          </button>
         </div>
-    </form>
-    
+      </form>
     </div>
 
+    <!-- end form -->
+  </section>
 
-      <!-- end form -->
-    </section>
-
-    
-    
-
-
-
-
-    <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

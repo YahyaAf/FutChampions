@@ -1,7 +1,15 @@
+body {
+    background-image: url('../img/7951a589f90b4c7d0a1e1fb9c811c81e.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}*
+
 .player {
     width: 60px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url('../img/badge_ballon_dor.webp');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,18 +23,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 130px;
     position: relative;
 }
 
 #parent-attack {
     position: absolute;
-    bottom: 60%;  
+    bottom: 75%;  
 }
 
 #parent-milieu {
     position: absolute;
-    bottom: 45%;  
+    bottom: 55%;  
 }
 
 #parent-defance {
