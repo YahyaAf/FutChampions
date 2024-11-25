@@ -1,47 +1,67 @@
+/* Body background styling */
 body {
     background-image: url('../img/7951a589f90b4c7d0a1e1fb9c811c81e.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-}*
-
-.player {
-    width: 60px;
-    height: 60px;
-    background-image: url('../img/badge_ballon_dor.webp');
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 0;
 }
 
+/* Player container styling */
+.player {
+    width: 180px; 
+    height: auto; 
+    background-image: url('../img/badge_gold.webp'); 
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%; 
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(179, 163, 15);
+    padding: 15px; 
+    box-sizing: border-box;
+}
+
+.player-img img {
+    width: 90px; /* Adjusted size for better scaling */
+    height: 90px;
+    object-fit: cover;
+}
+
+/* Positioning for field sections */
 #parent-attack, #parent-milieu, #parent-defance, #parent-gk {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 130px;
+    gap: 20px; /* Space between players */
     position: relative;
 }
 
+/* Attack section positioning */
 #parent-attack {
     position: absolute;
-    bottom: 75%;  
+    bottom: 70%;  
 }
 
+/* Midfield section positioning */
 #parent-milieu {
     position: absolute;
     bottom: 55%;  
 }
 
+/* Defense section positioning */
 #parent-defance {
     position: absolute;
     bottom: 30%;  
 }
 
+/* Goalkeeper section positioning */
 #parent-gk {
     position: absolute;
     bottom: 10%;  

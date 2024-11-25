@@ -18,7 +18,8 @@
           background-repeat: no-repeat;
           height: 100vh;
           width: 100%;
-        " class="text-white">
+          
+        " class="text-white rounded">
       <!-- Defense -->
       <div style="width: 50%; margin: auto" id="parent-defance"
         class="d-flex justify-content-center align-items-center">
@@ -79,65 +80,103 @@
       </div>
 
       <!-- Goalkeeper -->
-      <div style="width: 50%; margin: auto" id="parent-gk" class="d-flex justify-content-center align-items-center">
-        <div class="position-relative">
-          <div class="player">efzefz</div>
-        </div>
+<!-- Goalkeeper -->
+<div id="parent-gk" class="d-flex justify-content-center align-items-center position-absolute" style="bottom: 5%; width: 50%; margin: auto;">
+  <div class="player d-flex flex-column align-items-center">
+    <p class="fw-bold mb-1">90</p> 
+    <p class="fw-bold mb-1">Cf</p> 
+    <div class="player-img mb-2">
+      <img src="./assets/img/messi.jpeg" alt="Messi" class="rounded-circle img-fluid">
+    </div>
+    <p class="mb-3">Name</p>
+    <div style="font-size: 10px;" class="d-flex flex-wrap gap-2 justify-content-center">
+      <div class="text-center">
+        <p class="mb-0">Pac</p>
+        <p class="mb-0">90</p>
       </div>
+      <div class="text-center">
+        <p class="mb-0">Sho</p>
+        <p class="mb-0">90</p>
+      </div>
+      <div class="text-center">
+        <p class="mb-0">Pas</p>
+        <p class="mb-0">90</p>
+      </div>
+      <div class="text-center">
+        <p class="mb-0">Dri</p>
+        <p class="mb-0">90</p>
+      </div>
+      <div class="text-center">
+        <p class="mb-0">Def</p>
+        <p class="mb-0">90</p>
+      </div>
+      <div class="text-center">
+        <p class="mb-0">Phy</p>
+        <p class="mb-0">90</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-1 mb-5">
+      <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="img-fluid" style="width: 15px;">
+      <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="img-fluid" style="width: 15px;">
+      <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="img-fluid" style="width: 15px;">
+    </div>
+  </div>
+</div>
+
     </div>
 
     <!-- formulaire -->
     <div class="container w-50 h-100 bg-dark text-light py-3">
       <div class="row justify-content-center align-items-center h-100">
-            <div class="position-relative">
-              <img src="./assets/img/FutChampions.webp" class="w-100 rounded-top" alt="Sample photo"
-                style="height: 200px; object-fit: cover;">
-              <button type="button" class="btn btn-dark btn-sm position-absolute top-0 start-50 translate-middle-x">
-                Add Player
+        <div class="position-relative">
+          <img src="./assets/img/FutChampions.webp" class="w-100 rounded-top" alt="Sample photo"
+            style="height: 200px; object-fit: cover;">
+          <button type="button" class="btn btn-dark btn-sm position-absolute top-0 start-50 translate-middle-x">
+            Add Player
+          </button>
+        </div>
+        <div class="card-body bg-dark text-light p-4">
+          <div class="text-center mb-4">
+            <h3 class="text-light fw-bold">Team Settings</h3>
+            <p class="text-muted small">Customize your team strategy and settings below.</p>
+          </div>
+          <form>
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-light" for="formationSelect">Formation</label>
+              <select id="formationSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                <option value="formation1">4-3-3</option>
+                <option value="formation2">4-4-2</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-light" for="buildUpStyleSelect">Build Up Style</label>
+              <select id="buildUpStyleSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                <option value="">Balanced</option>
+                <option value="">Counter</option>
+                <option value="">Short passing</option>
+              </select>
+              <small class="text-muted">Control how your team builds play.</small>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-light" for="defensiveApproachSelect">Defensive
+                Approach</label>
+              <select id="defensiveApproachSelect" class="form-select shadow-sm bg-secondary text-light border-0">
+                <option value="">Balanced</option>
+                <option value="">Deep</option>
+                <option value="">High</option>
+                <option value="">Aggressive</option>
+              </select>
+              <small class="text-muted">Choose your team’s defensive strategy.</small>
+            </div>
+
+            <div class="text-center mt-4">
+              <button type="button" class="btn btn-primary btn-sm px-5 shadow-sm">
+                Save Settings
               </button>
             </div>
-            <div class="card-body bg-dark text-light p-4">
-              <div class="text-center mb-4">
-                <h3 class="text-light fw-bold">Team Settings</h3>
-                <p class="text-muted small">Customize your team strategy and settings below.</p>
-              </div>
-              <form>
-                <div class="mb-4">
-                  <label class="form-label fw-semibold text-light" for="formationSelect">Formation</label>
-                  <select id="formationSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                    <option value="formation1">4-3-3</option>
-                    <option value="formation2">4-4-2</option>
-                  </select>
-                </div>
-                <div class="mb-4">
-                  <label class="form-label fw-semibold text-light" for="buildUpStyleSelect">Build Up Style</label>
-                  <select id="buildUpStyleSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                    <option value="">Balanced</option>
-                    <option value="">Counter</option>
-                    <option value="">Short passing</option>
-                  </select>
-                  <small class="text-muted">Control how your team builds play.</small>
-                </div>
-
-                <div class="mb-4">
-                  <label class="form-label fw-semibold text-light" for="defensiveApproachSelect">Defensive
-                    Approach</label>
-                  <select id="defensiveApproachSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                    <option value="">Balanced</option>
-                    <option value="">Deep</option>
-                    <option value="">High</option>
-                    <option value="">Aggressive</option>
-                  </select>
-                  <small class="text-muted">Choose your team’s defensive strategy.</small>
-                </div>
-
-                <div class="text-center mt-4">
-                  <button type="button" class="btn btn-primary btn-sm px-5 shadow-sm">
-                    Save Settings
-                  </button>
-                </div>
-              </form>
-            </div>
+          </form>
+        </div>
       </div>
     </div>
 
