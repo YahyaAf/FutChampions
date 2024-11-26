@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/css.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,144 +14,605 @@
     .parent-player {
       background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="892" height="725" viewBox="0 0 904 650" fill="none"%3E%3Cpath d="M903 649.439H1L120.311 1H783.788L903 649.439Z" fill="%23404040" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M69.8843 275.038H834.169" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M550.992 275.425C553.194 321.703 508.921 360.763 452.019 360.763C395.117 360.763 350.853 321.703 353.062 275.425C355.172 231.123 399.452 196.564 452.035 196.564C504.618 196.564 548.89 231.115 550.992 275.425Z" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M541.288 71.4008C543.078 109.009 503.086 140.632 451.897 140.632C400.708 140.632 360.732 109.017 362.53 71.4008C364.259 35.2446 404.251 6.93591 451.92 6.93591C499.582 6.93591 539.574 35.2446 541.288 71.4008Z" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M269.125 96.4996H640.093L630.663 1.1532H278.312L269.125 96.4996Z" fill="%23404040" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M371.922 54.7625H532.542L530.219 1.13715H374.245L371.922 54.7625Z" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M343.464 530.333C346.061 474.554 395.78 431.261 454.624 431.261C513.469 431.261 563.279 474.554 565.998 530.333C568.855 588.91 519.151 638.6 454.853 638.6C390.554 638.6 340.737 588.91 343.471 530.333H343.464Z" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M675.597 492.572H227.26L211.911 649.198H690.84L675.597 492.572Z" fill="%23404040" stroke="%23696969" stroke-miterlimit="10"/%3E%3Cpath d="M556.362 556.642H352.353L348.43 649.238H560.453L556.362 556.642Z" stroke="%23696969" stroke-miterlimit="10"/%3E%3C/svg%3E');
       background-repeat: no-repeat;
-      background-size: 100% ;
+      background-size: 100%;
       height: 100vh;
       width: 100%;
       background-position: center;
       background-size: cover;
       object-fit: cover;
+      grid-template-rows: repeat(15, minmax(0, 1fr));
     }
   </style>
 </head>
 
 <body>
-  <section style="padding: 50px" class="d-flex">
-
+  <section style="padding: 50px" class="flex">
     <div class="parent-player grid grid-cols-12 grid-rows-12 gap-4 w-full ">
-      <!-- Goalkeeper (GK) -->
-      <div class="row-start-11 col-start-6 col-span-2 row-span-2 bg-green-500 p-4 text-center text-white rounded-lg">
-          GK
-      </div> 
-  
-      <!-- Defenders (4 players) -->
-      <div class="row-start-8 col-start-2 col-span-2 row-span-2 bg-blue-500 p-4 text-center text-white rounded-lg">
-          LB
-      </div>
-      <div class="row-start-9 col-start-5 col-span-2 row-span-2 bg-blue-500 p-4 text-center text-white rounded-lg">
-          CB
-      </div>
-      <div class="row-start-9 col-start-7 col-span-2 row-span-2 bg-blue-500 p-4 text-center text-white rounded-lg">
-          CB
-      </div>
-      <div class="row-start-8 col-start-10 col-span-2 row-span-2 bg-blue-500 p-4 text-center text-white rounded-lg">
-          RB
-      </div>
-  
-      <!-- Midfielders (3 players) -->
-      <div class="row-start-6 col-start-4 col-span-2 row-span-2 bg-yellow-500 p-4 text-center text-white rounded-lg">
-          CMF
-      </div>
-      <div class="row-start-7 col-start-6 col-span-2 row-span-2 bg-yellow-500 p-4 text-center text-white rounded-lg">
-          DMF
-      </div>
-      <div class="row-start-6 col-start-8 col-span-2 row-span-2 bg-yellow-500 p-4 text-center text-white rounded-lg">
-          CMF
-      </div>
-  
-      <!-- Forwards (3 players) -->
-      <div class="row-start-3 col-start-3 col-span-2 row-span-2 bg-red-500 p-4 text-center text-white rounded-lg">
-          LWF
-      </div>
-      <div class="row-start-2 col-start-6 col-span-2 row-span-2 bg-red-500 p-4 text-center text-white rounded-lg">
-          ST
-      </div>
-      <div class="row-start-3 col-start-9 col-span-2 row-span-2 bg-red-500 p-4 text-center text-white rounded-lg">
-          RWF
-      </div>
-  </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+            background-size: cover;
+            width: 150px;
+            height: 200px;"
+        class="row-start-11 col-start-6 col-span-2 row-span-4  p-4 text-center text-white rounded-lg relative">
 
+        <!-- Score -->
+        <p class="font-bold text-lg absolute top-9 left-3  px-2 py-1">90</p>
+        <p style="font-size: small; color: black;" class="absolute top-14 left-4 px-2 py-1">CF</p>
 
-
-    <!-- changement -->
-
-    <!-- end changement -->
-
-    <!-- formulaire -->
-    <div class="container w-50 h-100 bg-dark text-light py-3">
-      <div class="row justify-content-center align-items-center h-100">
-        <div class="position-relative">
-          <img src="./assets/img/FutChampions.webp" class="w-100 rounded-top" alt="Sample photo"
-            style="height: 200px; object-fit: cover;">
-          <button type="button" class="btn btn-dark btn-sm position-absolute top-0 start-50 translate-middle-x">
-            Add Player
-          </button>
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
         </div>
-        <div class="card-body bg-dark text-light p-4">
-          <div class="text-center mb-4">
-            <h3 class="text-light fw-bold">Team Settings</h3>
-            <p class="text-muted small">Customize your team strategy and settings below.</p>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
           </div>
-          <form>
-            <div class="mb-4">
-              <label class="form-label fw-semibold text-light" for="formationSelect">Formation</label>
-              <select id="formationSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                <option value="formation1">4-3-3</option>
-                <option value="formation2">4-4-2</option>
-              </select>
-            </div>
-            <div class="mb-4">
-              <label class="form-label fw-semibold text-light" for="buildUpStyleSelect">Build Up Style</label>
-              <select id="buildUpStyleSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                <option value="">Balanced</option>
-                <option value="">Counter</option>
-                <option value="">Short passing</option>
-              </select>
-              <small class="text-muted">Control how your team builds play.</small>
-            </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
 
-            <div class="mb-4">
-              <label class="form-label fw-semibold text-light" for="defensiveApproachSelect">Defensive
-                Approach</label>
-              <select id="defensiveApproachSelect" class="form-select shadow-sm bg-secondary text-light border-0">
-                <option value="">Balanced</option>
-                <option value="">Deep</option>
-                <option value="">High</option>
-                <option value="">Aggressive</option>
-              </select>
-              <small class="text-muted">Choose your team’s defensive strategy.</small>
-            </div>
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
 
-            <div class="text-center mt-4">
-              <button type="button" class="btn btn-primary btn-sm px-5 shadow-sm">
-                Save Settings
-              </button>
-            </div>
-          </form>
+      <!-- Defenders (4 players) -->
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+                  " class="row-start-8 col-start-2 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-9 col-start-4 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-9 col-start-8 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-8 col-start-10 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <!-- Midfielders (3 players) -->
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-5 col-start-4 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-7 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-5 col-start-8 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <!-- Forwards (3 players) -->
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-2 col-start-3 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-2 col-start-9 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
     </div>
 
-
-    <!-- form  -->
+    <!-- Form -->
     <div id="form-div"
-      class="d-none col-lg-4 col-md-6 col-sm-8 col-11 bg-white p-4 rounded position-absolute top-50 start-50 translate-middle shadow"
-      style="max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto">
+      class="max-w-md mx-auto p-4 bg-gray-800 shadow-lg rounded-lg overflow-y-auto max-h-[80vh] dark:bg-gray-900 dark:text-white">
       <form>
-        <h3 class="text-center mb-4">Add Player</h3>
+        <h3 class="text-center mb-4 text-xl font-semibold">Add Player</h3>
 
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter player name" />
+        <div class="mb-4">
+          <label for="name" class="form-label block text-sm font-semibold">Name</label>
+          <input type="text"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="name" placeholder="Enter player name" />
         </div>
 
-        <div class="mb-3">
-          <label for="photo" class="form-label">Choose a Photo</label>
-          <input type="file" class="form-control" id="photo" />
+        <div class="mb-4">
+          <label for="photo" class="form-label block text-sm font-semibold">Choose a Photo</label>
+          <input type="file"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="photo" />
         </div>
 
-        <div class="mb-3">
-          <label for="level" class="form-label">Position</label>
-          <select id="level" class="form-select">
+        <div class="mb-4">
+          <label for="level" class="form-label block text-sm font-semibold">Position</label>
+          <select id="level"
+            class="form-select mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <option selected value="Please select">Please select</option>
             <option value="GK">GK</option>
             <option value="ST">ST</option>
@@ -167,73 +626,508 @@
           </select>
         </div>
 
-        <div class="mb-3">
-          <label for="nationality" class="form-label">Nationality</label>
-          <input type="text" class="form-control" id="nationality" placeholder="Enter nationality" />
-        </div>
-
-        <div class="mb-3">
-          <label for="flag" class="form-label">Choose a Flag</label>
-          <input type="file" class="form-control" id="flag" />
-        </div>
-
-        <div class="mb-3">
-          <label for="club" class="form-label">Club</label>
-          <input type="text" class="form-control" id="club" placeholder="Enter club name" />
-        </div>
-
-        <div class="mb-3">
-          <label for="logo" class="form-label">Choose Logo</label>
-          <input type="file" class="form-control" id="logo" />
+        <div class="mb-4">
+          <label for="nationality" class="form-label block text-sm font-semibold">Nationality</label>
+          <input type="text"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="nationality" placeholder="Enter nationality" />
         </div>
 
         <div class="mb-4">
-          <h5>Player Ratings :</h5>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <label for="rating" class="form-label">Rating</label>
-              <input type="number" class="form-control" id="rating" />
+          <label for="flag" class="form-label block text-sm font-semibold">Choose a Flag</label>
+          <input type="file"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="flag" />
+        </div>
+
+        <div class="mb-4">
+          <label for="club" class="form-label block text-sm font-semibold">Club</label>
+          <input type="text"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="club" placeholder="Enter club name" />
+        </div>
+
+        <div class="mb-4">
+          <label for="logo" class="form-label block text-sm font-semibold">Choose Logo</label>
+          <input type="file"
+            class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            id="logo" />
+        </div>
+
+        <div class="mb-6">
+          <h5 class="text-lg font-semibold mb-2">Player Ratings :</h5>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="rating" class="form-label block text-sm font-semibold">Rating</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="rating" />
             </div>
-            <div class="col-md-4">
-              <label for="diving" class="form-label">Diving</label>
-              <input type="number" class="form-control" id="diving" />
+            <div>
+              <label for="diving" class="form-label block text-sm font-semibold">Diving</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="diving" />
             </div>
-            <div class="col-md-4">
-              <label for="handling" class="form-label">Handling</label>
-              <input type="number" class="form-control" id="handling" />
+            <div>
+              <label for="handling" class="form-label block text-sm font-semibold">Handling</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="handling" />
             </div>
-            <div class="col-md-4">
-              <label for="kicking" class="form-label">Kicking</label>
-              <input type="number" class="form-control" id="kicking" />
+            <div>
+              <label for="kicking" class="form-label block text-sm font-semibold">Kicking</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="kicking" />
             </div>
-            <div class="col-md-4">
-              <label for="reflexes" class="form-label">Reflexes</label>
-              <input type="number" class="form-control" id="reflexes" />
+            <div>
+              <label for="reflexes" class="form-label block text-sm font-semibold">Reflexes</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="reflexes" />
             </div>
-            <div class="col-md-4">
-              <label for="speed" class="form-label">Speed</label>
-              <input type="number" class="form-control" id="speed" />
+            <div>
+              <label for="speed" class="form-label block text-sm font-semibold">Speed</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="speed" />
             </div>
-            <div class="col-md-4">
-              <label for="positioning" class="form-label">Positioning</label>
-              <input type="number" class="form-control" id="positioning" />
+            <div>
+              <label for="positioning" class="form-label block text-sm font-semibold">Positioning</label>
+              <input type="number"
+                class="form-control mt-2 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                id="positioning" />
             </div>
           </div>
         </div>
 
-        <div class="d-flex justify-content-between">
-          <button id="submit" type="submit" class="btn btn-primary">
+        <div class="flex justify-between">
+          <button id="submit" type="submit"
+            class="btn btn-primary bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500">
             Submit
           </button>
-          <button type="button" class="btn btn-secondary" id="cancel">
+          <button type="button"
+            class="btn btn-secondary bg-gray-500 text-white p-2 rounded-md hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500"
+            id="cancel">
             Cancel
           </button>
         </div>
       </form>
     </div>
+  </section>  
+  <div class="flex flex-wrap gap-4 p-4 bg-gray-800 text-white rounded-lg mt-8">
+    <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
 
-    <!-- end form -->
-  </section>
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+      <div style="background-image: url('./assets/img/badge_gold.webp');
+                  background-size: cover;
+                  width: 150px;
+                  height: 200px; 
+      " class="row-start-1 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+        <!-- Score -->
+        <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
+        <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10 ml-1">CF</p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+          <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+          <p class="font-semibold mt-2">Messi</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+          <div class="text-center">
+            <p class="mb-0 text-black">Pac</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Sho</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Pas</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Dri</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Def</p>
+            <p class="mb-0">90</p>
+          </div>
+          <div class="text-center">
+            <p class=" mb-0 text-black">Phy</p>
+            <p class="mb-0">90</p>
+          </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+          <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+        </div>
+      </div>
+
+  </div>
+
 
   <script src="./assets/js/script.js"></script>
 </body>
