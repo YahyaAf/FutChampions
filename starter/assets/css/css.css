@@ -8,7 +8,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 /* Player container styling */
 .player {
     width: 180px; 
@@ -23,7 +22,6 @@ body {
     border-radius: 50%; 
     font-weight: bold;
     text-align: center;
-    background-color: rgb(179, 163, 15);
     padding: 15px; 
     box-sizing: border-box;
 }
@@ -34,35 +32,3 @@ body {
     object-fit: cover;
 }
 
-/* Positioning for field sections */
-#parent-attack, #parent-milieu, #parent-defance, #parent-gk {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* Space between players */
-    position: relative;
-}
-
-/* Attack section positioning */
-#parent-attack {
-    position: absolute;
-    bottom: 70%;  
-}
-
-/* Midfield section positioning */
-#parent-milieu {
-    position: absolute;
-    bottom: 55%;  
-}
-
-/* Defense section positioning */
-#parent-defance {
-    position: absolute;
-    bottom: 30%;  
-}
-
-/* Goalkeeper section positioning */
-#parent-gk {
-    position: absolute;
-    bottom: 10%;  
-}
