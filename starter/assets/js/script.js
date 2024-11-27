@@ -1,3 +1,16 @@
+const Gk = document.getElementById("gk");
+const Lb = document.getElementById("divPlayer");
+const CbLeft = document.getElementById("divPlayer");
+const CbRight = document.getElementById("divPlayer");
+const Rb = document.getElementById("divPlayer");
+const CmfLeft = document.getElementById("divPlayer");
+const Dmf = document.getElementById("divPlayer");
+const CmfRight = document.getElementById("divPlayer");
+const Lwf = document.getElementById("divPlayer");
+const St = document.getElementById("divPlayer");
+const Rwf = document.getElementById("divPlayer");
+
+
 let data = JSON.parse(localStorage.getItem("object")) || [];
 
 // Affiche les players
@@ -154,17 +167,6 @@ const Add = (event) => {
   const sp = document.getElementById("speed").value;
   const pos = document.getElementById("positioning").value;
 
-  // console.log(name)
-  // console.log(position)
-  // console.log(nationality)
-  // console.log(club)
-  // console.log(ratingGk)
-  // console.log(div)
-  // console.log(han)
-  // console.log(kic)
-  // console.log(ref)
-  // console.log(sp)
-  // console.log(pos)
 
   const player = {
     name: name,
@@ -204,3 +206,19 @@ const Add = (event) => {
 
   ReadAll()
 };
+
+// show rating de players if gk or player
+const divGk = document.getElementById("divGk"); 
+const divPlayer = document.getElementById("divPlayer");
+const position = document.getElementById("position"); 
+
+position.addEventListener('change', () => {
+  const selectedPos = position.value;
+
+  if (selectedPos === 'GK') {
+    divGk.classList.remove('hidden');
+  } else {
+    divGk.classList.add('hidden'); 
+    divPlayer.classList.remove('hidden');
+  }
+});

@@ -28,23 +28,22 @@
 <body onload="ReadAll()">
   <section style="padding: 50px" class="displayFlex display">
     <div class="parent-player grid grid-cols-12 grid-rows-12 gap-4 w-full">
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="gk" style="background-image: url('./assets/img/badge_gold.webp');
             background-size: cover;
             width: 150px;
             height: 200px;"
         class="row-start-11 col-start-6 col-span-2 row-span-4  p-4 text-center text-white rounded-lg relative">
 
-        <!-- Score -->
+        
         <p class="font-bold text-lg absolute top-9 left-4  px-2 py-1">90</p>
         <p style="font-size: small; color: black;" class="absolute top-14 left-4 px-2 py-1"><b>GK</b></p>
 
-        <!-- Player Image and Name -->
+      
         <div class="flex flex-col items-center mt-4">
           <img src="https://cdn.sofifa.net/players/200/389/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
           <p class="font-semibold mt-2">Messi</p>
         </div>
 
-        <!-- Player Stats -->
         <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
           <div class="text-center">
             <p class="mb-0 text-black"><b>Div</b></p>
@@ -72,7 +71,7 @@
           </div>
         </div>
 
-        <!-- Flags -->
+
         <div class="flex justify-center gap-1 ">
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
@@ -80,17 +79,17 @@
         </div>
       </div>
 
-      <!-- Defenders (4 players) -->
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+   
+      <div id="lb" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
                   " class="row-start-8 col-start-2 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
-        <!-- Score -->
+     
         <p class="font-bold text-lg absolute   px-2 py-1 mt-5">90</p>
         <p style="font-size: small; color: black;" class="absolute  px-2 py-1 mt-10"><b>CF</b></p>
 
-        <!-- Player Image and Name -->
+      
         <div class="flex flex-col items-center mt-4">
           <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
           <p class="font-semibold mt-2">Messi</p>
@@ -133,7 +132,7 @@
       </div>
 
 
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="cbLeft" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -183,7 +182,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="cbRight" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -233,7 +232,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="rb" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -285,7 +284,7 @@
       </div>
 
       <!-- Midfielders (3 players) -->
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="cmfLeft" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -335,7 +334,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="dmf" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -385,7 +384,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="cmfRight" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -437,7 +436,7 @@
       </div>
 
       <!-- Forwards (3 players) -->
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="lwf" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -487,7 +486,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="st" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -537,7 +536,7 @@
           <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
         </div>
       </div>
-      <div style="background-image: url('./assets/img/badge_gold.webp');
+      <div id="rwf" style="background-image: url('./assets/img/badge_gold.webp');
                   background-size: cover;
                   width: 150px;
                   height: 200px; 
@@ -615,14 +614,20 @@
             class="form-select mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <option value="Please select" class="text-gray-400">Please select</option>
             <option value="GK">GK</option>
-            <option value="ST">ST</option>
-            <option value="RB">RB</option>
             <option value="LB">LB</option>
-            <option value="RWF">RWF</option>
-            <option value="LWF">LWF</option>
-            <option value="CMF">CMF</option>
+            <option value="CBleft">CB Left</option>
+            <option value="CBright">CB right</option>
+            <option value="RB">RB</option>
+            <option value="CMFleft">CMF left</option>
             <option value="DMF">DMF</option>
-            <option value="CB">CB</option>
+            <option value="CMFright">CMF right</option>
+            <option value="LWF">LWF</option>
+            <option value="ST">ST</option>
+            <option value="RWF">RWF</option>
+            
+            
+            
+            
           </select>
         </div>
 
@@ -656,7 +661,7 @@
 
 
         <!-- GK rating -->
-        <div class="mb-6">
+        <div id="divGk" class="mb-6 hidden">
           <h5 class="text-lg font-semibold text-blue-400 mb-2">GK Ratings</h5>
           <div class="grid grid-cols-2 gap-4 ">
             <div>
@@ -705,7 +710,7 @@
         </div>
 
           <!-- player rating -->
-         <div class="mb-6">
+         <div id="divPlayer" class="mb-6 hidden">
             <h5 class="text-lg font-semibold text-blue-400 mb-2">Player Ratings</h5>
             <div class="grid grid-cols-2 gap-4">
               <div>
