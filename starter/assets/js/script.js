@@ -1,5 +1,7 @@
 const Gk = document.getElementById("gk");
+Gk.innerHTML = ''; 
 const Lb = document.getElementById("lb");
+Lb.innerHTML = ''; 
 const CbLeft = document.getElementById("cbLeft");
 const CbRight = document.getElementById("cbRight");
 const Rb = document.getElementById("rb");
@@ -14,17 +16,17 @@ const Rwf = document.getElementById("rwf");
 let data = JSON.parse(localStorage.getItem("object")) || [];
 
 
-// Affiche les players
 const ReadAll = () => {
   data = JSON.parse(localStorage.getItem("object")) || [];
+  let firstGkAdded = false;
+  let firstCbAdded = false;
 
-  let changements = []
-  let changement = document.querySelectorAll('#changement') 
+  let changements = [];
+  let changement = document.querySelectorAll('#changement');
 
-    data.forEach((player) => { 
-
-    if (player.position === "GK") {
-        Gk.innerHTML = `
+  data.forEach((player) => {
+    if (player.position === "GK" && !firstGkAdded) {
+      Gk.innerHTML = `
         <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
         <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>GK</b></p>
 
@@ -68,14 +70,60 @@ const ReadAll = () => {
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
         </div>
       `;
+      firstGkAdded = true; // GK is added, so set this flag to true
+    } else if (player.position === "LB" && !firstCbAdded) {
+      Lb.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
 
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
 
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstCbAdded = true; // Left-back is added, so set this flag to true
+    } else {
+      changements.push(player); // Add remaining players to changements array
     }
-
   });
-    
-        
-}
+
+  console.log(changements); // Log all players that were not GK or LB
+};
 
 
 const Add = (event) => {
@@ -141,8 +189,6 @@ const Add = (event) => {
       physical: phy,
     };
   }
-
-  console.log(player);
 
   data.push(player);
 
