@@ -43,7 +43,7 @@ const ReadAll = () => {
   let changements = [];
   let changement = document.querySelectorAll('#changement');
 
-  data.forEach((player) => {
+  data.forEach((player,index) => {
     if (player.position === "GK" && !firstGkAdded) {
       Gk.innerHTML = `
         <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
@@ -51,8 +51,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="GK Player" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete(${index})" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -563,8 +568,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="${player.position} Player" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete(${index})" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -600,6 +610,8 @@ const ReadAll = () => {
           <img src="${player.logo}" alt="Flag" class="w-4 h-4">
           <img src="${player.flag}" alt="Flag" class="w-4 h-4">
         </div>
+        
+        
       `;
     }
   });
@@ -725,3 +737,12 @@ const reset = () => {
   document.getElementById("positioning").value = "";
 };
 
+
+const Delete = (index) =>{
+  if (confirm("Are you sure you want to delete this player?")) {
+    data.splice(index, 1);
+    localStorage.setItem("object", JSON.stringify(data));
+    ReadAll();
+  }
+  ReadAll();
+}
