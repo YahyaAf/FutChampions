@@ -13,150 +13,69 @@ const Rwf = document.getElementById("rwf");
 
 let data = JSON.parse(localStorage.getItem("object")) || [];
 
-const updatePositionOrChangement = (positionDiv, player, changement) => {
-  // Check if the positionDiv is empty to add the player to the position
-  if (!positionDiv.innerHTML.trim()) { 
-      positionDiv.innerHTML = `
-      <p class="font-bold text-lg absolute px-2 py-1 mt-5">90</p>
-            <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10 ml-1"><b>CF</b></p>
 
-            <!-- Player Image and Name -->
-            <div class="flex flex-col items-center mt-4">
-              <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
-              <p class="font-semibold mt-2">${player.name}</p>
-            </div>
-
-            <!-- Player Stats -->
-            <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-              <div class="text-center">
-                <p class="mb-0 text-black"><b>Pac</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Sho</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Ps</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Dri</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Def</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Phy</b></p>
-                <p class="mb-0">90</p>
-              </div>
-            </div>
-
-            <!-- Flags -->
-            <div class="flex justify-center gap-1 ">
-              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
-              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
-            </div>
-          </div>
-      `;
-  } else {    
-          const changeItem = document.createElement("div");
-          changeItem.innerHTML = `
-          <div style="background-image: url('./assets/img/badge_gold.webp');
-                      background-size: cover;
-                      width: 150px;
-                      height: 200px; 
-          " class="row-start-7 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
-            <!-- Score -->
-            <p class="font-bold text-lg absolute px-2 py-1 mt-5">90</p>
-            <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10 ml-1"><b>CF</b></p>
-
-            <!-- Player Image and Name -->
-            <div class="flex flex-col items-center mt-4">
-              <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
-              <p class="font-semibold mt-2">${player.name}</p>
-            </div>
-
-            <!-- Player Stats -->
-            <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-              <div class="text-center">
-                <p class="mb-0 text-black"><b>Pac</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Sho</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Ps</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Dri</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Def</b></p>
-                <p class="mb-0">90</p>
-              </div>
-              <div class="text-center">
-                <p class=" mb-0 text-black"><b>Phy</b></p>
-                <p class="mb-0">90</p>
-              </div>
-            </div>
-
-            <!-- Flags -->
-            <div class="flex justify-center gap-1 ">
-              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
-              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
-            </div>
-          </div>
-          `;
-          changement.appendChild(changeItem);
-      }
-  }
-
-
-
+// Affiche les players
 const ReadAll = () => {
-  // Retrieve data from localStorage or set an empty array
-  const data = JSON.parse(localStorage.getItem("object")) || [];
-  
-  // Target the changement div
-  const changement = document.getElementById("changement");
-  
-  // Clear previous content
-  changement.innerHTML = ``;
-  
-  // Loop through all players and assign them to the GK position
-  data.forEach((player) => {
+  data = JSON.parse(localStorage.getItem("object")) || [];
+
+  let changements = []
+  let changement = document.querySelectorAll('#changement') 
+
+    data.forEach((player) => { 
+
     if (player.position === "GK") {
-      updatePositionOrChangement(Gk, player, changement);
-    }else if(player.position === "LB"){
-      updatePositionOrChangement(Lb, player, changement);
-    }else if(player.position === "CBleft"){
-      updatePositionOrChangement(CbLeft, player, changement);
-    }else if(player.position === "CBright"){
-      updatePositionOrChangement(CbRight, player, changement);
-    }else if(player.position === "RB"){
-      updatePositionOrChangement(Rb, player, changement);
-    }else if(player.position === "CMFleft"){
-      updatePositionOrChangement(CmfLeft, player, changement);
-    }else if(player.position === "DMF"){
-      updatePositionOrChangement(Dmf, player, changement);
-    }else if(player.position === "CMFright"){
-      updatePositionOrChangement(CmfRight, player, changement);
-    }else if(player.position === "LWF"){
-      updatePositionOrChangement(Lwf, player, changement);
-    }else if(player.position === "ST"){
-      updatePositionOrChangement(St, player, changement);
-    }else if(player.position === "RWF"){
-      updatePositionOrChangement(Rwf, player, changement);
+        Gk.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>GK</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="GK Player" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Div</b></p>
+            <p class="mb-0">${player.gkRatings.diving}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Han</b></p>
+            <p class="mb-0">${player.gkRatings.handling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Kic</b></p>
+            <p class="mb-0">${player.gkRatings.kicking}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ref</b></p>
+            <p class="mb-0">${player.gkRatings.reflexes}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sp</b></p>
+            <p class="mb-0">${player.gkRatings.speed}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pos</b></p>
+            <p class="mb-0">${player.gkRatings.positioning}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1 ">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+
+
     }
+
   });
-};
+    
+        
+}
 
 
 const Add = (event) => {
