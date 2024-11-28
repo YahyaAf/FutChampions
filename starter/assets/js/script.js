@@ -13,18 +13,11 @@ const Rwf = document.getElementById("rwf");
 
 let data = JSON.parse(localStorage.getItem("object")) || [];
 
-// Affiche les players
-const ReadAll = () => {
-  data = JSON.parse(localStorage.getItem("object")) || [];
-
-  const changement = document.getElementById("changement"); 
-
-    data.forEach((player) => { 
-
-    if (player.position === "GK") {
-        Gk.innerHTML = `
-        <p class="font-bold text-lg absolute top-9 left-4 px-2 py-1">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute top-14 left-4 px-2 py-1"><b>GK</b></p>
+const updatePositionOrChangement = (positionDiv, player, changement) => {
+  if (!positionDiv.innerHTML.trim()) { 
+      positionDiv.innerHTML = `
+      <p class="font-bold text-lg absolute top-9 left-4 px-2 py-1">${player.rating}</p>
+      <p style="font-size: small; color: black;" class="absolute top-14 left-4 px-2 py-1"><b>GK</b></p>
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
@@ -66,475 +59,80 @@ const ReadAll = () => {
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
         </div>
       `;
+  } else {
+      if (!positionDiv.innerHTML.includes(player.name)) {
+          const changeItem = document.createElement("div");
+          changeItem.innerHTML = `
+          <div style="background-image: url('./assets/img/badge_gold.webp');
+                      background-size: cover;
+                      width: 150px;
+                      height: 200px; 
+          " class="row-start-7 col-start-6 col-span-2 row-span-4 p-4 text-center text-white rounded-lg">
+            <!-- Score -->
+            <p class="font-bold text-lg absolute px-2 py-1 mt-5">90</p>
+            <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10 ml-1"><b>CF</b></p>
 
+            <!-- Player Image and Name -->
+            <div class="flex flex-col items-center mt-4">
+              <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+              <p class="font-semibold mt-2">${player.name}</p>
+            </div>
 
-    }else if(player.position === "LB"){
-        Lb.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+            <!-- Player Stats -->
+            <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+              <div class="text-center">
+                <p class="mb-0 text-black"><b>Pac</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Sho</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Ps</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Dri</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Def</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Phy</b></p>
+                <p class="mb-0">90</p>
+              </div>
+            </div>
 
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
+            <!-- Flags -->
+            <div class="flex justify-center gap-1 ">
+              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
             </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "CBleft"){
-        CbLeft.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CB</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "CBright"){
-        CbRight.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CB</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "RB"){
-        Rb.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>RB</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "CMFleft"){
-        CmfLeft.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CM</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "DMF"){
-        Dmf.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>DM</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "CMFright"){
-        CmfRight.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CM</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "LWF"){
-        Lwf.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>LW</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "ST"){
-        St.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>RW</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
-      }else if(player.position === "RWF"){
-        Rwf.innerHTML=`
-        <!-- Score -->
-        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
-        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CB</b></p>
-
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
-
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pac</b></p>
-            <p class="mb-0">${player.playerRatings.pace}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sho</b></p>
-            <p class="mb-0">${player.playerRatings.shooting}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ps</b></p>
-            <p class="mb-0">${player.playerRatings.passing}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Dri</b></p>
-            <p class="mb-0">${player.playerRatings.dribbling}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Def</b></p>
-            <p class="mb-0">${player.playerRatings.defending}</p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Phy</b></p>
-            <p class="mb-0">${player.playerRatings.physical}</p>
-            </div>
-        </div>
-
-        <!-- Flags -->
-        <div class="flex justify-center gap-1">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
-        `;
+          </div>
+          `;
+          changement.appendChild(changeItem);
       }
+  }
+};
 
+
+const ReadAll = () => {
+  
+  const data = JSON.parse(localStorage.getItem("object")) || [];
+  
+  const changement = document.getElementById("changement");  
+  
+  changement.innerHTML = ``;
+  
+  data.forEach((player) => {
+    if (player.position === "GK") {
+      updatePositionOrChangement(Gk, player, changement);
+    }
   });
-    
-        
-}
- 
+};
 
 
 const Add = (event) => {
@@ -606,8 +204,8 @@ const Add = (event) => {
   data.push(player);
 
   localStorage.setItem("object", JSON.stringify(data));
-
-  ReadAll()
+  
+  ReadAll();
 };
 
 // show rating de players if gk or player
@@ -626,3 +224,4 @@ position.addEventListener('change', () => {
     divPlayer.classList.remove('hidden');
   }
 });
+
