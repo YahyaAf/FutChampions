@@ -3,14 +3,23 @@ Gk.innerHTML = '';
 const Lb = document.getElementById("lb");
 Lb.innerHTML = ''; 
 const CbLeft = document.getElementById("cbLeft");
+CbLeft.innerHTML = ''; 
 const CbRight = document.getElementById("cbRight");
+CbRight.innerHTML = ''; 
 const Rb = document.getElementById("rb");
+Rb.innerHTML = ''; 
 const CmfLeft = document.getElementById("cmfLeft");
+CmfLeft.innerHTML = ''; 
 const Dmf = document.getElementById("dmf");
+Dmf.innerHTML = ''; 
 const CmfRight = document.getElementById("cmfRight");
+CmfRight.innerHTML = ''; 
 const Lwf = document.getElementById("lwf");
+Lwf.innerHTML = ''; 
 const St = document.getElementById("st");
+St.innerHTML = ''; 
 const Rwf = document.getElementById("rwf");
+Rwf.innerHTML = ''; 
 
 
 let data = JSON.parse(localStorage.getItem("object")) || [];
@@ -19,7 +28,17 @@ let data = JSON.parse(localStorage.getItem("object")) || [];
 const ReadAll = () => {
   data = JSON.parse(localStorage.getItem("object")) || [];
   let firstGkAdded = false;
-  let firstCbAdded = false;
+  let firstLbAdded = false;
+  let firstCbLeftAdded = false;
+  let firstCbRightAdded = false;
+  let firstRbAdded = false;
+  let firstCmLeftAdded = false;
+  let firstDmfAdded = false;
+  let firstCmRightAdded = false;
+  let firstLwAdded = false;
+  let firstStAdded = false;
+  let firstRwAdded = false;
+  
 
   let changements = [];
   let changement = document.querySelectorAll('#changement');
@@ -71,7 +90,7 @@ const ReadAll = () => {
         </div>
       `;
       firstGkAdded = true; // GK is added, so set this flag to true
-    } else if (player.position === "LB" && !firstCbAdded) {
+    } else if (player.position === "LB" && !firstLbAdded) {
       Lb.innerHTML = `
         <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
         <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
@@ -116,13 +135,476 @@ const ReadAll = () => {
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
         </div>
       `;
-      firstCbAdded = true; // Left-back is added, so set this flag to true
+      firstLbAdded = true; 
+    }else if (player.position === "CBleft" && !firstCbLeftAdded) {
+      CbLeft.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CB</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstCbLeftAdded = true; 
+    }else if (player.position === "CBright" && !firstCbRightAdded) {
+      CbRight.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CB</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstCbRightAdded = true; 
+    }else if (player.position === "RB" && !firstRbAdded) {
+      Rb.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstRbAdded = true; 
+    }else if (player.position === "CMFleft" && !firstCmLeftAdded) {
+      CmfLeft.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CM</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstCmLeftAdded = true; 
+    }else if (player.position === "DMF" && !firstDmfAdded) {
+      Dmf.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstDmfAdded = true; 
+    }else if (player.position === "CMFright" && !firstCmRightAdded) {
+      CmfRight.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>CM</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstCmRightAdded = true; 
+    }else if (player.position === "LWF" && !firstLwAdded) {
+      Lwf.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstLwAdded = true; 
+    }else if (player.position === "ST" && !firstStAdded) {
+      St.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstStAdded = true; 
+    }else if (player.position === "RWF" && !firstRwAdded) {
+      Rwf.innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Pac</b></p>
+            <p class="mb-0">${player.playerRatings.pace}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Sho</b></p>
+            <p class="mb-0">${player.playerRatings.shooting}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Ps</b></p>
+            <p class="mb-0">${player.playerRatings.passing}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Dri</b></p>
+            <p class="mb-0">${player.playerRatings.dribbling}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Def</b></p>
+            <p class="mb-0">${player.playerRatings.defending}</p>
+            </div>
+            <div class="text-center">
+            <p class="mb-0 text-black"><b>Phy</b></p>
+            <p class="mb-0">${player.playerRatings.physical}</p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+      firstRwAdded = true; 
     } else {
-      changements.push(player); // Add remaining players to changements array
+      changements.push(player); 
     }
   });
 
-  console.log(changements); // Log all players that were not GK or LB
+  changements.forEach((player, index) => {
+    if (changement[index]) {
+      changement[index].innerHTML = `
+        <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
+        <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10"><b>${player.position}</b></p>
+
+        <!-- Player Image and Name -->
+        <div class="flex flex-col items-center mt-4">
+            <img src="${player.photo}" alt="${player.position} Player" class="rounded-full w-16 h-16">
+            <p class="font-semibold mt-2">${player.name}</p>
+        </div>
+
+        <!-- Player Stats -->
+        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Pac</b></p>
+              <p class="mb-0"></p>
+            </div>
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Sho</b></p>
+              <p class="mb-0"></p>
+            </div>
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Ps</b></p>
+              <p class="mb-0"></p>
+            </div>
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Dri</b></p>
+              <p class="mb-0"></p>
+            </div>
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Def</b></p>
+              <p class="mb-0"></p>
+            </div>
+            <div class="text-center">
+              <p class="mb-0 text-black"><b>Phy</b></p>
+              <p class="mb-0"></p>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="flex justify-center gap-1">
+          <img src="${player.logo}" alt="Flag" class="w-4 h-4">
+          <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+        </div>
+      `;
+    }
+  });
+
+  console.log(changements); 
 };
 
 
