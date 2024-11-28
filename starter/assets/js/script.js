@@ -14,53 +14,54 @@ const Rwf = document.getElementById("rwf");
 let data = JSON.parse(localStorage.getItem("object")) || [];
 
 const updatePositionOrChangement = (positionDiv, player, changement) => {
+  // Check if the positionDiv is empty to add the player to the position
   if (!positionDiv.innerHTML.trim()) { 
       positionDiv.innerHTML = `
-      <p class="font-bold text-lg absolute top-9 left-4 px-2 py-1">${player.rating}</p>
-      <p style="font-size: small; color: black;" class="absolute top-14 left-4 px-2 py-1"><b>GK</b></p>
+      <p class="font-bold text-lg absolute px-2 py-1 mt-5">90</p>
+            <p style="font-size: small; color: black;" class="absolute px-2 py-1 mt-10 ml-1"><b>CF</b></p>
 
-        <!-- Player Image and Name -->
-        <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="GK Player" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
-        </div>
+            <!-- Player Image and Name -->
+            <div class="flex flex-col items-center mt-4">
+              <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Messi" class="rounded-full w-16 h-16">
+              <p class="font-semibold mt-2">${player.name}</p>
+            </div>
 
-        <!-- Player Stats -->
-        <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Div</b></p>
-            <p class="mb-0"></p>
+            <!-- Player Stats -->
+            <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
+              <div class="text-center">
+                <p class="mb-0 text-black"><b>Pac</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Sho</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Ps</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Dri</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Def</b></p>
+                <p class="mb-0">90</p>
+              </div>
+              <div class="text-center">
+                <p class=" mb-0 text-black"><b>Phy</b></p>
+                <p class="mb-0">90</p>
+              </div>
             </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Han</b></p>
-            <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Kic</b></p>
-            <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Ref</b></p>
-            <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Sp</b></p>
-            <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-            <p class="mb-0 text-black"><b>Pos</b></p>
-            <p class="mb-0"></p>
-            </div>
-        </div>
 
-        <!-- Flags -->
-        <div class="flex justify-center gap-1 ">
-            <img src="${player.logo}" alt="Flag" class="w-4 h-4">
-            <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-        </div>
+            <!-- Flags -->
+            <div class="flex justify-center gap-1 ">
+              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+              <img src="./assets/img/bandeira-argentina-flag-0.png" alt="Flag" class="w-4 h-4">
+            </div>
+          </div>
       `;
-  } else {
-      if (!positionDiv.innerHTML.includes(player.name)) {
+  } else {    
           const changeItem = document.createElement("div");
           changeItem.innerHTML = `
           <div style="background-image: url('./assets/img/badge_gold.webp');
@@ -116,17 +117,20 @@ const updatePositionOrChangement = (positionDiv, player, changement) => {
           changement.appendChild(changeItem);
       }
   }
-};
+
 
 
 const ReadAll = () => {
-  
+  // Retrieve data from localStorage or set an empty array
   const data = JSON.parse(localStorage.getItem("object")) || [];
   
-  const changement = document.getElementById("changement");  
+  // Target the changement div
+  const changement = document.getElementById("changement");
   
+  // Clear previous content
   changement.innerHTML = ``;
   
+  // Loop through all players and assign them to the GK position
   data.forEach((player) => {
     if (player.position === "GK") {
       updatePositionOrChangement(Gk, player, changement);
@@ -224,7 +228,7 @@ const Add = (event) => {
   data.push(player);
 
   localStorage.setItem("object", JSON.stringify(data));
-  
+  reset();
   ReadAll();
 };
 
@@ -244,4 +248,33 @@ position.addEventListener('change', () => {
     divPlayer.classList.remove('hidden');
   }
 });
+
+
+// reset forms
+const reset = () => {
+
+  document.getElementById("name").value = "";
+  document.querySelector("#photo").value = "";
+  document.getElementById("position").value = "";
+  document.getElementById("nationality").value = "";
+  document.querySelector("#flag").value = "";
+  document.getElementById("club").value = "";
+  document.querySelector("#logo").value = "";
+  document.getElementById("ratingPlayer").value = "";
+ 
+  document.getElementById("pace").value = "";
+  document.getElementById("shooting").value = "";
+  document.getElementById("passing").value = "";
+  document.getElementById("dribbling").value = "";
+  document.getElementById("defending").value = "";
+  document.getElementById("physical").value = "";
+
+  document.getElementById("ratingGk").value = "";
+  document.getElementById("diving").value = "";
+  document.getElementById("handling").value = "";
+  document.getElementById("kicking").value = "";
+  document.getElementById("reflexes").value = "";
+  document.getElementById("speed").value = "";
+  document.getElementById("positioning").value = "";
+};
 
