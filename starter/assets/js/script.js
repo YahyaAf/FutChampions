@@ -29,27 +29,27 @@ const updatePositionOrChangement = (positionDiv, player, changement) => {
         <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
             <div class="text-center">
             <p class="mb-0 text-black"><b>Div</b></p>
-            <p class="mb-0">${player.gkRatings.diving}</p>
+            <p class="mb-0"></p>
             </div>
             <div class="text-center">
             <p class="mb-0 text-black"><b>Han</b></p>
-            <p class="mb-0">${player.gkRatings.handling}</p>
+            <p class="mb-0"></p>
             </div>
             <div class="text-center">
             <p class="mb-0 text-black"><b>Kic</b></p>
-            <p class="mb-0">${player.gkRatings.kicking}</p>
+            <p class="mb-0"></p>
             </div>
             <div class="text-center">
             <p class="mb-0 text-black"><b>Ref</b></p>
-            <p class="mb-0">${player.gkRatings.reflexes}</p>
+            <p class="mb-0"></p>
             </div>
             <div class="text-center">
             <p class="mb-0 text-black"><b>Sp</b></p>
-            <p class="mb-0">${player.gkRatings.speed}</p>
+            <p class="mb-0"></p>
             </div>
             <div class="text-center">
             <p class="mb-0 text-black"><b>Pos</b></p>
-            <p class="mb-0">${player.gkRatings.positioning}</p>
+            <p class="mb-0"></p>
             </div>
         </div>
 
@@ -130,6 +130,26 @@ const ReadAll = () => {
   data.forEach((player) => {
     if (player.position === "GK") {
       updatePositionOrChangement(Gk, player, changement);
+    }else if(player.position === "LB"){
+      updatePositionOrChangement(Lb, player, changement);
+    }else if(player.position === "CBleft"){
+      updatePositionOrChangement(CbLeft, player, changement);
+    }else if(player.position === "CBright"){
+      updatePositionOrChangement(CbRight, player, changement);
+    }else if(player.position === "RB"){
+      updatePositionOrChangement(Rb, player, changement);
+    }else if(player.position === "CMFleft"){
+      updatePositionOrChangement(CmfLeft, player, changement);
+    }else if(player.position === "DMF"){
+      updatePositionOrChangement(Dmf, player, changement);
+    }else if(player.position === "CMFright"){
+      updatePositionOrChangement(CmfRight, player, changement);
+    }else if(player.position === "LWF"){
+      updatePositionOrChangement(Lwf, player, changement);
+    }else if(player.position === "ST"){
+      updatePositionOrChangement(St, player, changement);
+    }else if(player.position === "RWF"){
+      updatePositionOrChangement(Rwf, player, changement);
     }
   });
 };
