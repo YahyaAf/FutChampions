@@ -569,30 +569,30 @@ const ReadAll = () => {
 
         <!-- Player Stats -->
         <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Pac</b></p>
-              <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Sho</b></p>
-              <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Ps</b></p>
-              <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Dri</b></p>
-              <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Def</b></p>
-              <p class="mb-0"></p>
-            </div>
-            <div class="text-center">
-              <p class="mb-0 text-black"><b>Phy</b></p>
-              <p class="mb-0"></p>
-            </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Div" : "Pac"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.diving : player.playerRatings.pace}</p>
+          </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Han" : "Sho"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.handling : player.playerRatings.shooting}</p>
+          </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Kic" : "Ps"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.kicking : player.playerRatings.passing}</p>
+          </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Ref" : "Dri"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.reflexes : player.playerRatings.dribbling}</p>
+          </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Sp" : "Def"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.speed : player.playerRatings.defending}</p>
+          </div>
+          <div class="text-center">
+            <p class="mb-0 text-black"><b>${player.position === "GK" ? "Pos" : "Phy"}</b></p>
+            <p class="mb-0">${player.position === "GK" ? player.gkRatings.positioning : player.playerRatings.physical}</p>
+          </div>
         </div>
 
         <!-- Flags -->
