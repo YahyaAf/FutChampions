@@ -53,7 +53,7 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete(${index})" class="text-red-500 text-sm ">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
                 <i class="fas fa-trash-alt"></i> 
             </button>
           </div>
@@ -570,7 +570,7 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete(${index})" class="text-red-500 text-sm ">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
                 <i class="fas fa-trash-alt"></i> 
             </button>
           </div>
@@ -615,7 +615,6 @@ const ReadAll = () => {
       `;
     }
   });
-
   console.log(changements); 
 };
 
@@ -738,11 +737,19 @@ const reset = () => {
 };
 
 
-const Delete = (index) =>{
+const Delete = (playerName) => {
   if (confirm("Are you sure you want to delete this player?")) {
-    data.splice(index, 1);
-    localStorage.setItem("object", JSON.stringify(data));
-    ReadAll();
+    const playerIndex = data.findIndex(player => player.name === playerName);
+
+    if (playerIndex !== -1) {
+
+      data.splice(playerIndex, 1);
+
+      localStorage.setItem("object", JSON.stringify(data));
+
+      ReadAll();
+    } else {
+      alert("Player not found!");
+    }
   }
-  ReadAll();
-}
+};
