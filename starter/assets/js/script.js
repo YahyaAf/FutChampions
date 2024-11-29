@@ -53,7 +53,7 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm w-1">
                 <i class="fas fa-trash-alt"></i> 
             </button>
           </div>
@@ -89,12 +89,15 @@ const ReadAll = () => {
         </div>
 
         <!-- Flags -->
-        <div class="flex justify-center gap-1 ">
+        <div class="flex justify-center gap-1">
             <img src="${player.logo}" alt="Flag" class="w-4 h-4">
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+            <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                <i class="fas fa-edit"></i>
+            </button>
         </div>
       `;
-      firstGkAdded = true; // GK is added, so set this flag to true
+      firstGkAdded = true;
     } else if (player.position === "LB" && !firstLbAdded) {
       Lb.innerHTML = `
         <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
@@ -143,6 +146,9 @@ const ReadAll = () => {
         <div class="flex justify-center gap-1">
             <img src="${player.logo}" alt="Flag" class="w-4 h-4">
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
+            <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                <i class="fas fa-edit"></i>
+            </button>
         </div>
       `;
       firstLbAdded = true; 
@@ -704,6 +710,7 @@ const Add = (event) => {
 
 
   const player = {
+    id: Date.now().toString(),
     name: name,
     photo: inputPhotosUrl,
     position: position,
@@ -786,7 +793,7 @@ const reset = () => {
   document.getElementById("positioning").value = "";
 };
 
-
+// delete data 
 const Delete = (playerName) => {
   if (confirm("Are you sure you want to delete this player?")) {
     const playerIndex = data.findIndex(player => player.name === playerName);
@@ -801,5 +808,86 @@ const Delete = (playerName) => {
     } else {
       alert("Player not found!");
     }
+  }
+};
+
+
+const Update = (playerId) => {
+  const playerIndex = data.findIndex(player => player.id === playerId);
+
+  if (playerIndex !== -1) {
+
+    document.getElementById('name').value = data[playerIndex].name;
+    document.getElementById('photo').value = data[playerIndex].photo;
+    document.getElementById('position').value = data[playerIndex].position;
+    document.getElementById('nationality').value = data[playerIndex].nationality;
+    document.getElementById('flag').value = data[playerIndex].flag;
+    document.getElementById('club').value = data[playerIndex].club;
+    document.getElementById('logo').value = data[playerIndex].logo;
+    
+    const divGk = document.getElementById("divGk");
+    const divPlayer = document.getElementById("divPlayer");
+
+    if (data[playerIndex].position === 'GK') {
+      divGk.classList.remove('hidden');
+      divPlayer.classList.add('hidden')
+      document.getElementById('ratingGk').value = data[playerIndex].rating ||'';
+      document.getElementById('diving').value = data[playerIndex].gkRatings.diving ||'';
+      document.getElementById('handling').value = data[playerIndex].gkRatings.handling ||'';
+      document.getElementById('kicking').value = data[playerIndex].gkRatings.kicking ||'';
+      document.getElementById('reflexes').value = data[playerIndex].gkRatings.reflexes ||'';
+      document.getElementById('speed').value = data[playerIndex].gkRatings.speed ||'';
+      document.getElementById('positioning').value = data[playerIndex].gkRatings.positioning ||'';
+    } else {
+      divGk.classList.add('hidden');
+      divPlayer.classList.remove('hidden');
+      
+        document.getElementById('ratingPlayer').value = data[playerIndex].rating ||''; 
+        document.getElementById('pace').value = data[playerIndex].playerRatings.pace || '';
+        document.getElementById('shooting').value = data[playerIndex].playerRatings.shooting || '';
+        document.getElementById('passing').value = data[playerIndex].playerRatings.passing || '';
+        document.getElementById('dribbling').value = data[playerIndex].playerRatings.dribbling || '';
+        document.getElementById('defending').value = data[playerIndex].playerRatings.defending || '';
+        document.getElementById('physical').value = data[playerIndex].playerRatings.physical || '';
+
+    }
+    document.getElementById('update').onclick = () => {
+      
+      data[playerIndex].name = document.getElementById('name').value;
+      data[playerIndex].photo = document.getElementById('photo').value;
+      data[playerIndex].position = document.getElementById('position').value;
+      data[playerIndex].nationality = document.getElementById('nationality').value;
+      data[playerIndex].flag = document.getElementById('flag').value;
+      data[playerIndex].club = document.getElementById('club').value;
+      data[playerIndex].logo = document.getElementById('logo').value;
+      
+
+      if (data[playerIndex].position === 'GK') {
+       
+        data[playerIndex].rating = document.getElementById('ratingGk').value;
+        data[playerIndex].gkRatings.diving = document.getElementById('diving').value;
+        data[playerIndex].gkRatings.handling = document.getElementById('handling').value;
+        data[playerIndex].gkRatings.kicking = document.getElementById('kicking').value;
+        data[playerIndex].gkRatings.reflexes = document.getElementById('reflexes').value;
+        data[playerIndex].gkRatings.speed = document.getElementById('speed').value;
+        data[playerIndex].gkRatings.positioning = document.getElementById('positioning').value;
+      } else {
+        data[playerIndex].rating = document.getElementById('ratingPlayer').value;
+        data[playerIndex].playerRatings.pace = document.getElementById('pace').value;
+        data[playerIndex].playerRatings.shooting = document.getElementById('shooting').value;
+        data[playerIndex].playerRatings.passing = document.getElementById('passing').value;
+        data[playerIndex].playerRatings.dribbling = document.getElementById('dribbling').value;
+        data[playerIndex].playerRatings.defending = document.getElementById('defending').value;
+        data[playerIndex].playerRatings.physical = document.getElementById('physical').value;
+      }
+    
+      localStorage.setItem('object', JSON.stringify(data));
+    
+      reset();
+      ReadAll();
+      alert("Player updated successfully!");
+    };
+  } else {
+    alert("Player not found!");
   }
 };
