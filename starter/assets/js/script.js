@@ -102,8 +102,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -148,8 +153,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -194,8 +204,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -240,8 +255,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -286,8 +306,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -332,8 +357,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -378,8 +408,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -424,8 +459,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -470,8 +510,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
@@ -516,8 +561,13 @@ const ReadAll = () => {
 
         <!-- Player Image and Name -->
         <div class="flex flex-col items-center mt-4">
-            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16">
-            <p class="font-semibold mt-2">${player.name}</p>
+          <div class="flex">
+            <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
+            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                <i class="fas fa-trash-alt"></i> 
+            </button>
+          </div>
+          <p class="font-semibold mt-2">${player.name}</p>
         </div>
 
         <!-- Player Stats -->
