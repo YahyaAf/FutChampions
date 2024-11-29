@@ -27,6 +27,7 @@ let data = JSON.parse(localStorage.getItem("object")) || [];
 
 const ReadAll = () => {
   data = JSON.parse(localStorage.getItem("object")) || [];
+
   let firstGkAdded = false;
   let firstLbAdded = false;
   let firstCbLeftAdded = false;
@@ -43,7 +44,7 @@ const ReadAll = () => {
   let changements = [];
   let changement = document.querySelectorAll('#changement');
 
-  data.forEach((player,index) => {
+  data.forEach((player) => {
     if (player.position === "GK" && !firstGkAdded) {
       Gk.innerHTML = `
         <p class="font-bold text-lg absolute px-2 py-1 mt-5">${player.rating}</p>
@@ -770,7 +771,7 @@ const reset = () => {
 
   document.getElementById("name").value = "";
   document.querySelector("#photo").value = "";
-  document.getElementById("position").value = "";
+  document.getElementById("position").value = document.getElementById("position").options[0].value;
   document.getElementById("nationality").value = "";
   document.querySelector("#flag").value = "";
   document.getElementById("club").value = "";
@@ -811,9 +812,24 @@ const Delete = (playerName) => {
   }
 };
 
-
+// update data
 const Update = (playerId) => {
   const playerIndex = data.findIndex(player => player.id === playerId);
+  const submit = document.getElementById('submit');
+  const update = document.getElementById('update');
+  const cancel = document.getElementById('cancel');
+
+  // hide button submit
+  submit.classList.add('hidden');
+  cancel.classList.remove('hidden');
+  update.classList.remove('hidden');
+
+  cancel.addEventListener('click',function(){
+    submit.classList.remove('hidden');
+    cancel.classList.add('hidden');
+    update.classList.add('hidden');
+    reset();
+  });
 
   if (playerIndex !== -1) {
 
@@ -882,7 +898,9 @@ const Update = (playerId) => {
       }
     
       localStorage.setItem('object', JSON.stringify(data));
-    
+      submit.classList.remove('hidden');
+      cancel.classList.add('hidden');
+      update.classList.add('hidden');
       reset();
       ReadAll();
       alert("Player updated successfully!");
