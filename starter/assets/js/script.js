@@ -810,6 +810,7 @@ const Delete = (playerName) => {
       alert("Player not found!");
     }
   }
+  location.reload();
 };
 
 const Update = (playerId) => {
@@ -926,6 +927,7 @@ const Update = (playerId) => {
       reset();
       ReadAll();
       alert("Player updated successfully!");
+      location.reload();
     };
   } else {
     alert("Player not found!");
