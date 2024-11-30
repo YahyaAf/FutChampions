@@ -812,14 +812,12 @@ const Delete = (playerName) => {
   }
 };
 
-// update data
 const Update = (playerId) => {
   const playerIndex = data.findIndex(player => player.id === playerId);
   const submit = document.getElementById('submit');
   const update = document.getElementById('update');
   const cancel = document.getElementById('cancel');
 
-  // hide button submit
   submit.classList.add('hidden');
   cancel.classList.remove('hidden');
   update.classList.remove('hidden');
@@ -868,7 +866,6 @@ const Update = (playerId) => {
 
     }
     document.getElementById('update').onclick = () => {
-      
       data[playerIndex].name = document.getElementById('name').value;
       data[playerIndex].photo = document.getElementById('photo').value;
       data[playerIndex].position = document.getElementById('position').value;
@@ -876,10 +873,19 @@ const Update = (playerId) => {
       data[playerIndex].flag = document.getElementById('flag').value;
       data[playerIndex].club = document.getElementById('club').value;
       data[playerIndex].logo = document.getElementById('logo').value;
-      
-
+    
       if (data[playerIndex].position === 'GK') {
-       
+        if (!data[playerIndex].gkRatings) {
+          data[playerIndex].gkRatings = {
+            diving: '',
+            handling: '',
+            kicking: '',
+            reflexes: '',
+            speed: '',
+            positioning: '',
+          };
+        }
+    
         data[playerIndex].rating = document.getElementById('ratingGk').value;
         data[playerIndex].gkRatings.diving = document.getElementById('diving').value;
         data[playerIndex].gkRatings.handling = document.getElementById('handling').value;
@@ -887,7 +893,21 @@ const Update = (playerId) => {
         data[playerIndex].gkRatings.reflexes = document.getElementById('reflexes').value;
         data[playerIndex].gkRatings.speed = document.getElementById('speed').value;
         data[playerIndex].gkRatings.positioning = document.getElementById('positioning').value;
+        
+
+        delete data[playerIndex].playerRatings;
       } else {
+        if (!data[playerIndex].playerRatings) {
+          data[playerIndex].playerRatings = {
+            pace: '',
+            shooting: '',
+            passing: '',
+            dribbling: '',
+            defending: '',
+            physical: '',
+          };
+        }
+    
         data[playerIndex].rating = document.getElementById('ratingPlayer').value;
         data[playerIndex].playerRatings.pace = document.getElementById('pace').value;
         data[playerIndex].playerRatings.shooting = document.getElementById('shooting').value;
@@ -895,6 +915,8 @@ const Update = (playerId) => {
         data[playerIndex].playerRatings.dribbling = document.getElementById('dribbling').value;
         data[playerIndex].playerRatings.defending = document.getElementById('defending').value;
         data[playerIndex].playerRatings.physical = document.getElementById('physical').value;
+        
+        delete data[playerIndex].gkRatings;
       }
     
       localStorage.setItem('object', JSON.stringify(data));
