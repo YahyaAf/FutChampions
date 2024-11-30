@@ -54,12 +54,20 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm w-1">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <p class="font-semibold mt-2">${player.name}</p>
-        </div>
+            <p class="font-semibold mt-2">${player.name}</p>
+          </div>
 
         <!-- Player Stats -->
         <div style="gap: 1.5px;" class="flex justify-between text-xs mt-2">
@@ -93,9 +101,6 @@ const ReadAll = () => {
         <div class="flex justify-center gap-1">
             <img src="${player.logo}" alt="Flag" class="w-4 h-4">
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-            <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
-                <i class="fas fa-edit"></i>
-            </button>
         </div>
       `;
       firstGkAdded = true;
@@ -108,9 +113,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -147,9 +160,6 @@ const ReadAll = () => {
         <div class="flex justify-center gap-1">
             <img src="${player.logo}" alt="Flag" class="w-4 h-4">
             <img src="${player.flag}" alt="Flag" class="w-4 h-4">
-            <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
-                <i class="fas fa-edit"></i>
-            </button>
         </div>
       `;
       firstLbAdded = true; 
@@ -162,9 +172,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -213,9 +231,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -264,9 +290,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -315,9 +349,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -366,9 +408,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -417,9 +467,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -468,9 +526,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -519,9 +585,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -570,9 +644,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -616,7 +698,7 @@ const ReadAll = () => {
       changements.push(player); 
     }
   });
-
+  
   changements.forEach((player, index) => {
     if (changement[index]) {
       changement[index].innerHTML = `
@@ -627,9 +709,17 @@ const ReadAll = () => {
         <div class="flex flex-col items-center mt-4">
           <div class="flex">
             <img src="${player.photo}" alt="" class="rounded-full w-16 h-16 ml-3">
-            <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
-                <i class="fas fa-trash-alt"></i> 
-            </button>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-ellipsis-v cursor-pointer text-gray-600 text-xl" id="option"></i>
+              <div id= 'actionButton' class='flex flex-col hidden'>
+                <button onclick="Delete('${player.name}')" class="text-red-500 text-sm ">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="Update('${player.id}')" class="text-orange-500 text-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <p class="font-semibold mt-2">${player.name}</p>
         </div>
@@ -672,6 +762,17 @@ const ReadAll = () => {
       `;
     }
   });
+
+  // show option if need delete or update
+  const options = document.querySelectorAll('#option');
+  const actionButtons = document.querySelectorAll('#actionButton');
+
+  options.forEach((option, index) => {
+  option.addEventListener('click', () => {
+    actionButtons[index].classList.toggle('hidden');
+  });
+  }); 
+
   console.log(changements); 
 };
 
