@@ -779,74 +779,76 @@ const ReadAll = () => {
 
 const Add = (event) => {
   event.preventDefault();
-  // name
-  const name = document.getElementById("name").value;
-  // image
-  const inputPhotosUrl = document.querySelector("#photo").value;
-  // position
-  const position = document.getElementById("position").value;
-  // Nationality
-  const nationality = document.getElementById("nationality").value;
-  // image
-  const inputFlagsUrl = document.querySelector("#flag").value;
-  // club
-  const club = document.getElementById("club").value;
-  // logo
-  const inputLogosUrl = document.querySelector("#logo").value;
-  // Player Rating
-  const ratingPlayer = document.getElementById("ratingPlayer").value;
-  const pac = document.getElementById("pace").value;
-  const sho = document.getElementById("shooting").value;
-  const ps = document.getElementById("passing").value;
-  const dri = document.getElementById("dribbling").value;
-  const def = document.getElementById("defending").value;
-  const phy = document.getElementById("physical").value;
-  // Gk Rating
-  const ratingGk = document.getElementById("ratingGk").value;
-  const div = document.getElementById("diving").value;
-  const han = document.getElementById("handling").value;
-  const kic = document.getElementById("kicking").value;
-  const ref = document.getElementById("reflexes").value;
-  const sp = document.getElementById("speed").value;
-  const pos = document.getElementById("positioning").value;
-
-
-  const player = {
-    id: Date.now().toString(),
-    name: name,
-    photo: inputPhotosUrl,
-    position: position,
-    nationality: nationality,
-    flag: inputFlagsUrl,
-    club: club,
-    logo: inputLogosUrl,
-    rating: position === "GK" ? ratingGk : ratingPlayer,
-  };
-  if (position === "GK") {
-    player.gkRatings = {
-      diving: div,
-      handling: han,
-      kicking: kic,
-      reflexes: ref,
-      speed: sp,
-      positioning: pos,
+  if(validation()){
+    // name
+    const name = document.getElementById("name").value;
+    // image
+    const inputPhotosUrl = document.querySelector("#photo").value;
+    // position
+    const position = document.getElementById("position").value;
+    // Nationality
+    const nationality = document.getElementById("nationality").value;
+    // image
+    const inputFlagsUrl = document.querySelector("#flag").value;
+    // club
+    const club = document.getElementById("club").value;
+    // logo
+    const inputLogosUrl = document.querySelector("#logo").value;
+    // Player Rating
+    const ratingPlayer = document.getElementById("ratingPlayer").value;
+    const pac = document.getElementById("pace").value;
+    const sho = document.getElementById("shooting").value;
+    const ps = document.getElementById("passing").value;
+    const dri = document.getElementById("dribbling").value;
+    const def = document.getElementById("defending").value;
+    const phy = document.getElementById("physical").value;
+    // Gk Rating
+    const ratingGk = document.getElementById("ratingGk").value;
+    const div = document.getElementById("diving").value;
+    const han = document.getElementById("handling").value;
+    const kic = document.getElementById("kicking").value;
+    const ref = document.getElementById("reflexes").value;
+    const sp = document.getElementById("speed").value;
+    const pos = document.getElementById("positioning").value;
+  
+  
+    const player = {
+      id: Date.now().toString(),
+      name: name,
+      photo: inputPhotosUrl,
+      position: position,
+      nationality: nationality,
+      flag: inputFlagsUrl,
+      club: club,
+      logo: inputLogosUrl,
+      rating: position === "GK" ? ratingGk : ratingPlayer,
     };
-  } else {
-    player.playerRatings = {
-      pace: pac,
-      shooting: sho,
-      passing: ps,
-      dribbling: dri,
-      defending: def,
-      physical: phy,
-    };
+    if (position === "GK") {
+      player.gkRatings = {
+        diving: div,
+        handling: han,
+        kicking: kic,
+        reflexes: ref,
+        speed: sp,
+        positioning: pos,
+      };
+    } else {
+      player.playerRatings = {
+        pace: pac,
+        shooting: sho,
+        passing: ps,
+        dribbling: dri,
+        defending: def,
+        physical: phy,
+      };
+    }
+  
+    data.push(player);
+  
+    localStorage.setItem("object", JSON.stringify(data));
+    reset();
+    ReadAll();
   }
-
-  data.push(player);
-
-  localStorage.setItem("object", JSON.stringify(data));
-  reset();
-  ReadAll();
 };
 
 // show rating de players if gk or player
@@ -914,6 +916,7 @@ const Delete = (playerName) => {
   location.reload();
 };
 
+// update data 
 const Update = (playerId) => {
   const playerIndex = data.findIndex(player => player.id === playerId);
   const submit = document.getElementById('submit');
@@ -1033,4 +1036,125 @@ const Update = (playerId) => {
   } else {
     alert("Player not found!");
   }
+};
+
+const validation = () => {
+  let condition = true;
+
+  // Name
+  const name = document.getElementById("name");
+  if (name.value.trim() === "") {
+    alert("Erreur de nom");
+    name.classList.remove("border-green-500");
+    name.classList.add("border-red-500");
+    condition = false;
+  } else {
+    name.classList.remove("border-red-500");
+    name.classList.add("border-green-500");
+  }
+
+  // Photo
+  const photo = document.getElementById("photo");
+  if (photo.value.trim() === "") {
+    alert("Erreur de photo");
+    photo.classList.remove("border-green-500");
+    photo.classList.add("border-red-500");
+    condition = false;
+  } else {
+    photo.classList.remove("border-red-500");
+    photo.classList.add("border-green-500");
+  }
+
+  // Position
+  const position = document.getElementById("position");
+  if (position.value.trim() === "") {
+    alert("Erreur de position");
+    position.classList.remove("border-green-500");
+    position.classList.add("border-red-500");
+    condition = false;
+  } else {
+    position.classList.remove("border-red-500");
+    position.classList.add("border-green-500");
+    
+    // Validate ratings de Gk et Player 
+    if (position.value.toLowerCase() === "gk") {
+      const gkRatings = ["ratingGk", "diving", "handling", "kicking", "reflexes", "speed", "positioning"];
+      gkRatings.forEach((id) => {
+        const field = document.getElementById(id);
+        if (field.value.trim() === "") {
+          alert(`Erreur de ${id}`);
+          field.classList.remove("border-green-500");
+          field.classList.add("border-red-500");
+          condition = false;
+        } else {
+          field.classList.remove("border-red-500");
+          field.classList.add("border-green-500");
+        }
+      });
+    }else{
+      const playerRatings = ["ratingPlayer", "pace", "shooting", "passing", "dribbling", "defending", "physical"];
+      playerRatings.forEach((id) => {
+        const field = document.getElementById(id);
+        if (field.value.trim() === "") {
+          alert(`Erreur de ${id}`);
+          field.classList.remove("border-green-500");
+          field.classList.add("border-red-500");
+          condition = false;
+        } else {
+          field.classList.remove("border-red-500");
+          field.classList.add("border-green-500");
+        }
+      });
+    } 
+  }
+
+  // Nationality
+  const nationality = document.getElementById("nationality");
+  if (nationality.value.trim() === "") {
+    alert("Erreur de nationalité");
+    nationality.classList.remove("border-green-500");
+    nationality.classList.add("border-red-500");
+    condition = false;
+  } else {
+    nationality.classList.remove("border-red-500");
+    nationality.classList.add("border-green-500");
+  }
+
+  // Flag
+  const flag = document.getElementById("flag");
+  if (flag.value.trim() === "") {
+    alert("Erreur de drapeau");
+    flag.classList.remove("border-green-500");
+    flag.classList.add("border-red-500");
+    condition = false;
+  } else {
+    flag.classList.remove("border-red-500");
+    flag.classList.add("border-green-500");
+  }
+
+  // Club
+  const club = document.getElementById("club");
+  if (club.value.trim() === "") {
+    alert("Erreur de club");
+    club.classList.remove("border-green-500");
+    club.classList.add("border-red-500");
+    condition = false;
+  } else {
+    club.classList.remove("border-red-500");
+    club.classList.add("border-green-500");
+  }
+
+  // Logo
+  const logo = document.getElementById("logo");
+  if (logo.value.trim() === "") {
+    alert("Erreur de logo");
+    logo.classList.remove("border-green-500");
+    logo.classList.add("border-red-500");
+    condition = false;
+  } else {
+    logo.classList.remove("border-red-500");
+    logo.classList.add("border-green-500");
+  }
+
+  return condition; 
 };
