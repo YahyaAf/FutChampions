@@ -936,6 +936,7 @@ const Update = (playerId) => {
 
   if (playerIndex !== -1) {
 
+    // Pre-fill form values
     document.getElementById('name').value = data[playerIndex].name;
     document.getElementById('photo').value = data[playerIndex].photo;
     document.getElementById('position').value = data[playerIndex].position;
@@ -947,9 +948,10 @@ const Update = (playerId) => {
     const divGk = document.getElementById("divGk");
     const divPlayer = document.getElementById("divPlayer");
 
+    // Show specific fields for GK or player
     if (data[playerIndex].position === 'GK') {
       divGk.classList.remove('hidden');
-      divPlayer.classList.add('hidden')
+      divPlayer.classList.add('hidden');
       document.getElementById('ratingGk').value = data[playerIndex].rating ||'';
       document.getElementById('diving').value = data[playerIndex].gkRatings.diving ||'';
       document.getElementById('handling').value = data[playerIndex].gkRatings.handling ||'';
@@ -961,80 +963,83 @@ const Update = (playerId) => {
       divGk.classList.add('hidden');
       divPlayer.classList.remove('hidden');
       
-        document.getElementById('ratingPlayer').value = data[playerIndex].rating ||''; 
-        document.getElementById('pace').value = data[playerIndex].playerRatings.pace || '';
-        document.getElementById('shooting').value = data[playerIndex].playerRatings.shooting || '';
-        document.getElementById('passing').value = data[playerIndex].playerRatings.passing || '';
-        document.getElementById('dribbling').value = data[playerIndex].playerRatings.dribbling || '';
-        document.getElementById('defending').value = data[playerIndex].playerRatings.defending || '';
-        document.getElementById('physical').value = data[playerIndex].playerRatings.physical || '';
-
+      document.getElementById('ratingPlayer').value = data[playerIndex].rating ||''; 
+      document.getElementById('pace').value = data[playerIndex].playerRatings.pace || '';
+      document.getElementById('shooting').value = data[playerIndex].playerRatings.shooting || '';
+      document.getElementById('passing').value = data[playerIndex].playerRatings.passing || '';
+      document.getElementById('dribbling').value = data[playerIndex].playerRatings.dribbling || '';
+      document.getElementById('defending').value = data[playerIndex].playerRatings.defending || '';
+      document.getElementById('physical').value = data[playerIndex].playerRatings.physical || '';
     }
-    document.getElementById('update').onclick = () => {
-      data[playerIndex].name = document.getElementById('name').value;
-      data[playerIndex].photo = document.getElementById('photo').value;
-      data[playerIndex].position = document.getElementById('position').value;
-      data[playerIndex].nationality = document.getElementById('nationality').value;
-      data[playerIndex].flag = document.getElementById('flag').value;
-      data[playerIndex].club = document.getElementById('club').value;
-      data[playerIndex].logo = document.getElementById('logo').value;
-    
-      if (data[playerIndex].position === 'GK') {
-        if (!data[playerIndex].gkRatings) {
-          data[playerIndex].gkRatings = {
-            diving: '',
-            handling: '',
-            kicking: '',
-            reflexes: '',
-            speed: '',
-            positioning: '',
-          };
-        }
-    
-        data[playerIndex].rating = document.getElementById('ratingGk').value;
-        data[playerIndex].gkRatings.diving = document.getElementById('diving').value;
-        data[playerIndex].gkRatings.handling = document.getElementById('handling').value;
-        data[playerIndex].gkRatings.kicking = document.getElementById('kicking').value;
-        data[playerIndex].gkRatings.reflexes = document.getElementById('reflexes').value;
-        data[playerIndex].gkRatings.speed = document.getElementById('speed').value;
-        data[playerIndex].gkRatings.positioning = document.getElementById('positioning').value;
-        
 
-        delete data[playerIndex].playerRatings;
-      } else {
-        if (!data[playerIndex].playerRatings) {
-          data[playerIndex].playerRatings = {
-            pace: '',
-            shooting: '',
-            passing: '',
-            dribbling: '',
-            defending: '',
-            physical: '',
-          };
+    // Handle the update click with validation
+    document.getElementById('update').onclick = () => {
+      // Run validation before updating
+      if (validation()) {
+        // Update the player object with new values from the form
+        data[playerIndex].name = document.getElementById('name').value;
+        data[playerIndex].photo = document.getElementById('photo').value;
+        data[playerIndex].position = document.getElementById('position').value;
+        data[playerIndex].nationality = document.getElementById('nationality').value;
+        data[playerIndex].flag = document.getElementById('flag').value;
+        data[playerIndex].club = document.getElementById('club').value;
+        data[playerIndex].logo = document.getElementById('logo').value;
+
+        if (data[playerIndex].position === 'GK') {
+          if (!data[playerIndex].gkRatings) {
+            data[playerIndex].gkRatings = {
+              diving: '',
+              handling: '',
+              kicking: '',
+              reflexes: '',
+              speed: '',
+              positioning: '',
+            };
+          }
+
+          data[playerIndex].rating = document.getElementById('ratingGk').value;
+          data[playerIndex].gkRatings.diving = document.getElementById('diving').value;
+          data[playerIndex].gkRatings.handling = document.getElementById('handling').value;
+          data[playerIndex].gkRatings.kicking = document.getElementById('kicking').value;
+          data[playerIndex].gkRatings.reflexes = document.getElementById('reflexes').value;
+          data[playerIndex].gkRatings.speed = document.getElementById('speed').value;
+          data[playerIndex].gkRatings.positioning = document.getElementById('positioning').value;
+
+          delete data[playerIndex].playerRatings;
+        } else {
+          if (!data[playerIndex].playerRatings) {
+            data[playerIndex].playerRatings = {
+              pace: '',
+              shooting: '',
+              passing: '',
+              dribbling: '',
+              defending: '',
+              physical: '',
+            };
+          }
+
+          data[playerIndex].rating = document.getElementById('ratingPlayer').value;
+          data[playerIndex].playerRatings.pace = document.getElementById('pace').value;
+          data[playerIndex].playerRatings.shooting = document.getElementById('shooting').value;
+          data[playerIndex].playerRatings.passing = document.getElementById('passing').value;
+          data[playerIndex].playerRatings.dribbling = document.getElementById('dribbling').value;
+          data[playerIndex].playerRatings.defending = document.getElementById('defending').value;
+          data[playerIndex].playerRatings.physical = document.getElementById('physical').value;
+
+          delete data[playerIndex].gkRatings;
         }
-    
-        data[playerIndex].rating = document.getElementById('ratingPlayer').value;
-        data[playerIndex].playerRatings.pace = document.getElementById('pace').value;
-        data[playerIndex].playerRatings.shooting = document.getElementById('shooting').value;
-        data[playerIndex].playerRatings.passing = document.getElementById('passing').value;
-        data[playerIndex].playerRatings.dribbling = document.getElementById('dribbling').value;
-        data[playerIndex].playerRatings.defending = document.getElementById('defending').value;
-        data[playerIndex].playerRatings.physical = document.getElementById('physical').value;
-        
-        delete data[playerIndex].gkRatings;
+
+        // Save the updated data to local storage
+        localStorage.setItem('object', JSON.stringify(data));
+        submit.classList.remove('hidden');
+        cancel.classList.add('hidden');
+        update.classList.add('hidden');
+        reset();
+        ReadAll();
+        alert("Player updated successfully!");
+        location.reload();
       }
-    
-      localStorage.setItem('object', JSON.stringify(data));
-      submit.classList.remove('hidden');
-      cancel.classList.add('hidden');
-      update.classList.add('hidden');
-      reset();
-      ReadAll();
-      alert("Player updated successfully!");
-      location.reload();
     };
-  } else {
-    alert("Player not found!");
   }
 };
 
@@ -1067,7 +1072,7 @@ const validation = () => {
 
   // Position
   const position = document.getElementById("position");
-  if (position.value.trim() === "") {
+  if (position.value.trim() === "Please select") {
     alert("Erreur de position");
     position.classList.remove("border-green-500");
     position.classList.add("border-red-500");
