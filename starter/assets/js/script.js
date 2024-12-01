@@ -1057,7 +1057,16 @@ const validation = () => {
     name.classList.remove("border-red-500");
     name.classList.add("border-green-500");
   }
-
+  const nameReg = /^[a-zA-Z]{1,20}$/;
+  if (!nameReg.test(name.value)) {
+    alert("nom contient just caractere et fixe taille");
+    name.classList.remove("border-green-500");
+    name.classList.add("border-red-500");
+    condition = false;
+  } else {
+    name.classList.remove("border-red-500");
+    name.classList.add("border-green-500");
+  }
   // Photo
   const photo = document.getElementById("photo");
   if (photo.value.trim() === "") {
@@ -1068,6 +1077,16 @@ const validation = () => {
   } else {
     photo.classList.remove("border-red-500");
     photo.classList.add("border-green-500");
+  }
+  const photoReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
+  if (!photoReg.test(photo.value)) {
+    alert("ur url is not correct");
+    name.classList.remove("border-green-500");
+    name.classList.add("border-red-500");
+    condition = false;
+  } else {
+    name.classList.remove("border-red-500");
+    name.classList.add("border-green-500");
   }
 
   // Position
@@ -1095,6 +1114,16 @@ const validation = () => {
           field.classList.remove("border-red-500");
           field.classList.add("border-green-500");
         }
+        const fieldReg = /^(10|[1-9][0-9])$/;;
+        if (!fieldReg.test(field.value)) {
+          alert(`nombre de gk entre 10 et 99}`);
+          field.classList.remove("border-green-500");
+          field.classList.add("border-red-500");
+          condition = false;
+        } else {
+          field.classList.remove("border-red-500");
+          field.classList.add("border-green-500");
+        }
       });
     }else{
       const playerRatings = ["ratingPlayer", "pace", "shooting", "passing", "dribbling", "defending", "physical"];
@@ -1102,6 +1131,16 @@ const validation = () => {
         const field = document.getElementById(id);
         if (field.value.trim() === "") {
           alert(`Erreur de ${id}`);
+          field.classList.remove("border-green-500");
+          field.classList.add("border-red-500");
+          condition = false;
+        } else {
+          field.classList.remove("border-red-500");
+          field.classList.add("border-green-500");
+        }
+        const fieldReg = /^(10|[1-9][0-9])$/;;
+        if (!fieldReg.test(field.value)) {
+          alert(`nombre de player entre 10 et 99}`);
           field.classList.remove("border-green-500");
           field.classList.add("border-red-500");
           condition = false;
@@ -1124,11 +1163,31 @@ const validation = () => {
     nationality.classList.remove("border-red-500");
     nationality.classList.add("border-green-500");
   }
+  const nationalityReg = /^[a-zA-Z]{3,30}$/;
+  if (!nationalityReg.test(nationality.value)) {
+    alert("caractere de nationality entre 3 et 30");
+    nationality.classList.remove("border-green-500");
+    nationality.classList.add("border-red-500");
+    condition = false;
+  } else {
+    nationality.classList.remove("border-red-500");
+    nationality.classList.add("border-green-500");
+  }
 
   // Flag
   const flag = document.getElementById("flag");
   if (flag.value.trim() === "") {
     alert("Erreur de drapeau");
+    flag.classList.remove("border-green-500");
+    flag.classList.add("border-red-500");
+    condition = false;
+  } else {
+    flag.classList.remove("border-red-500");
+    flag.classList.add("border-green-500");
+  }
+  const flagReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
+  if (!flagReg.test(flag.value)) {
+    alert("ur url flag is not correct");
     flag.classList.remove("border-green-500");
     flag.classList.add("border-red-500");
     condition = false;
@@ -1148,6 +1207,16 @@ const validation = () => {
     club.classList.remove("border-red-500");
     club.classList.add("border-green-500");
   }
+  const clubReg = /^[a-zA-Z]{3,25}$/;
+  if (!clubReg.test(club.value)) {
+    alert("Erreur de club les caractere entre 3 et 25");
+    club.classList.remove("border-green-500");
+    club.classList.add("border-red-500");
+    condition = false;
+  } else {
+    club.classList.remove("border-red-500");
+    club.classList.add("border-green-500");
+  }
 
   // Logo
   const logo = document.getElementById("logo");
@@ -1160,6 +1229,17 @@ const validation = () => {
     logo.classList.remove("border-red-500");
     logo.classList.add("border-green-500");
   }
+  const logoReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
+  if (!logoReg.test(logo.value)) {
+    alert("ur url logo in not valider");
+    logo.classList.remove("border-green-500");
+    logo.classList.add("border-red-500");
+    condition = false;
+  } else {
+    logo.classList.remove("border-red-500");
+    logo.classList.add("border-green-500");
+  }
+  
 
   return condition; 
 };
