@@ -1048,45 +1048,35 @@ const validation = () => {
 
   // Name
   const name = document.getElementById("name");
+  const erreurName = document.getElementById('erreurName');;
   if (name.value.trim() === "") {
-    alert("Erreur de nom");
-    name.classList.remove("border-green-500");
-    name.classList.add("border-red-500");
+    erreurName.classList.remove('hidden');
     condition = false;
   } else {
-    name.classList.remove("border-red-500");
-    name.classList.add("border-green-500");
+    erreurName.classList.add('hidden');
   }
   const nameReg = /^[a-zA-Z]{1,20}$/;
   if (!nameReg.test(name.value)) {
-    alert("nom contient just caractere et fixe taille");
-    name.classList.remove("border-green-500");
-    name.classList.add("border-red-500");
+    erreurName.classList.remove('hidden');
     condition = false;
   } else {
-    name.classList.remove("border-red-500");
-    name.classList.add("border-green-500");
+    erreurName.classList.add('hidden');
   }
   // Photo
   const photo = document.getElementById("photo");
+  const erreurPhoto = document.getElementById("erreurPhoto");
   if (photo.value.trim() === "") {
-    alert("Erreur de photo");
-    photo.classList.remove("border-green-500");
-    photo.classList.add("border-red-500");
+    erreurPhoto.classList.remove('hidden');
     condition = false;
   } else {
-    photo.classList.remove("border-red-500");
-    photo.classList.add("border-green-500");
+    erreurPhoto.classList.add('hidden');
   }
   const photoReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
   if (!photoReg.test(photo.value)) {
-    alert("ur url is not correct");
-    name.classList.remove("border-green-500");
-    name.classList.add("border-red-500");
+    erreurPhoto.classList.remove('hidden');
     condition = false;
   } else {
-    name.classList.remove("border-red-500");
-    name.classList.add("border-green-500");
+    erreurPhoto.classList.add('hidden');
   }
 
   // Position
@@ -1106,23 +1096,19 @@ const validation = () => {
       gkRatings.forEach((id) => {
         const field = document.getElementById(id);
         if (field.value.trim() === "") {
-          alert(`Erreur de ${id}`);
           field.classList.remove("border-green-500");
           field.classList.add("border-red-500");
           condition = false;
         } else {
           field.classList.remove("border-red-500");
-          field.classList.add("border-green-500");
         }
         const fieldReg = /^(10|[1-9][0-9])$/;;
         if (!fieldReg.test(field.value)) {
-          alert(`nombre de gk entre 10 et 99}`);
           field.classList.remove("border-green-500");
           field.classList.add("border-red-500");
           condition = false;
         } else {
           field.classList.remove("border-red-500");
-          field.classList.add("border-green-500");
         }
       });
     }else{
@@ -1130,23 +1116,19 @@ const validation = () => {
       playerRatings.forEach((id) => {
         const field = document.getElementById(id);
         if (field.value.trim() === "") {
-          alert(`Erreur de ${id}`);
           field.classList.remove("border-green-500");
           field.classList.add("border-red-500");
           condition = false;
         } else {
           field.classList.remove("border-red-500");
-          field.classList.add("border-green-500");
         }
         const fieldReg = /^(10|[1-9][0-9])$/;;
         if (!fieldReg.test(field.value)) {
-          alert(`nombre de player entre 10 et 99}`);
           field.classList.remove("border-green-500");
           field.classList.add("border-red-500");
           condition = false;
         } else {
           field.classList.remove("border-red-500");
-          field.classList.add("border-green-500");
         }
       });
     } 
@@ -1154,90 +1136,70 @@ const validation = () => {
 
   // Nationality
   const nationality = document.getElementById("nationality");
+  const erreurNationality = document.getElementById("erreurNationality");
   if (nationality.value.trim() === "") {
-    alert("Erreur de nationalité");
-    nationality.classList.remove("border-green-500");
-    nationality.classList.add("border-red-500");
+    erreurNationality.classList.remove('hidden');
     condition = false;
   } else {
-    nationality.classList.remove("border-red-500");
-    nationality.classList.add("border-green-500");
+    erreurNationality.classList.add('hidden');
   }
   const nationalityReg = /^[a-zA-Z]{3,30}$/;
   if (!nationalityReg.test(nationality.value)) {
-    alert("caractere de nationality entre 3 et 30");
-    nationality.classList.remove("border-green-500");
-    nationality.classList.add("border-red-500");
+    erreurNationality.classList.remove('hidden');
     condition = false;
   } else {
-    nationality.classList.remove("border-red-500");
-    nationality.classList.add("border-green-500");
+    erreurNationality.classList.add('hidden');
   }
 
   // Flag
   const flag = document.getElementById("flag");
+  const erreurFlag = document.getElementById("erreurFlag");
   if (flag.value.trim() === "") {
-    alert("Erreur de drapeau");
-    flag.classList.remove("border-green-500");
-    flag.classList.add("border-red-500");
+    erreurFlag.classList.remove('hidden');
     condition = false;
   } else {
-    flag.classList.remove("border-red-500");
-    flag.classList.add("border-green-500");
+    erreurFlag.classList.add('hidden');
   }
   const flagReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
   if (!flagReg.test(flag.value)) {
-    alert("ur url flag is not correct");
-    flag.classList.remove("border-green-500");
-    flag.classList.add("border-red-500");
+    erreurFlag.classList.remove('hidden');
     condition = false;
   } else {
-    flag.classList.remove("border-red-500");
-    flag.classList.add("border-green-500");
+    erreurFlag.classList.add('hidden');
   }
 
   // Club
   const club = document.getElementById("club");
+  const erreurClub = document.getElementById("erreurClub");
   if (club.value.trim() === "") {
-    alert("Erreur de club");
-    club.classList.remove("border-green-500");
-    club.classList.add("border-red-500");
+    erreurClub.classList.remove('hidden');
     condition = false;
   } else {
-    club.classList.remove("border-red-500");
-    club.classList.add("border-green-500");
+    erreurClub.classList.add('hidden');
   }
   const clubReg = /^[a-zA-Z]{3,25}$/;
   if (!clubReg.test(club.value)) {
-    alert("Erreur de club les caractere entre 3 et 25");
-    club.classList.remove("border-green-500");
-    club.classList.add("border-red-500");
+    erreurClub.classList.remove('hidden');
     condition = false;
   } else {
-    club.classList.remove("border-red-500");
-    club.classList.add("border-green-500");
+    erreurClub.classList.add('hidden');
   }
 
   // Logo
   const logo = document.getElementById("logo");
+  const erreurLogo = document.getElementById("erreurLogo");
   if (logo.value.trim() === "") {
-    alert("Erreur de logo");
-    logo.classList.remove("border-green-500");
-    logo.classList.add("border-red-500");
+    erreurLogo.classList.remove('hidden');
     condition = false;
   } else {
-    logo.classList.remove("border-red-500");
-    logo.classList.add("border-green-500");
+    erreurLogo.classList.add('hidden');
   }
   const logoReg = /^(https:\/\/|http:\/\/)\S+\.png$/;
   if (!logoReg.test(logo.value)) {
-    alert("ur url logo in not valider");
-    logo.classList.remove("border-green-500");
-    logo.classList.add("border-red-500");
+    erreurLogo.classList.remove('hidden');
     condition = false;
   } else {
-    logo.classList.remove("border-red-500");
-    logo.classList.add("border-green-500");
+    erreurLogo.classList.add('hidden');
   }
   
 

@@ -138,6 +138,7 @@
           <input type="text"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="name" placeholder="Enter player name" />
+            <p id="erreurName" class="text-red-500 text-sm mt-1 hidden">Le nom est invalide.</p>
         </div>
 
         <div class="mb-4">
@@ -145,6 +146,7 @@
           <input type="url"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="photo" placeholder="Entrer url de votre photo" />
+            <p id="erreurPhoto" class="text-red-500 text-sm mt-1 hidden">Le photo est invalide.</p>
         </div>
 
         <div class="mb-4">
@@ -163,10 +165,6 @@
             <option value="LWF">LWF</option>
             <option value="ST">ST</option>
             <option value="RWF">RWF</option>
-
-
-
-
           </select>
         </div>
 
@@ -175,6 +173,7 @@
           <input type="text"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="nationality" placeholder="Enter nationality" />
+            <p id="erreurNationality" class="text-red-500 text-sm mt-1 hidden">La nationality est invalide.</p>
         </div>
 
         <div class="mb-4">
@@ -182,6 +181,7 @@
           <input type="url"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="flag" placeholder="Entrer url de votre flag" />
+            <p id="erreurFlag" class="text-red-500 text-sm mt-1 hidden">Flag est invalide.</p>
         </div>
 
         <div class="mb-4">
@@ -189,6 +189,7 @@
           <input type="text"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="club" placeholder="Enter club name" />
+            <p id="erreurClub" class="text-red-500 text-sm mt-1 hidden">Club est invalide.</p>
         </div>
 
         <div class="mb-4">
@@ -196,6 +197,7 @@
           <input type="url"
             class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             id="logo" placeholder="Entrer url de votre logo" />
+            <p id="erreurLogo" class="text-red-500 text-sm mt-1 hidden">Logo est invalide.</p>
         </div>
 
 
@@ -208,42 +210,49 @@
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="ratingGk" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="diving" class="form-label block text-sm font-semibold text-gray-200">Diving</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="diving" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="handling" class="form-label block text-sm font-semibold text-gray-200">Handling</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="handling" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="kicking" class="form-label block text-sm font-semibold text-gray-200">Kicking</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="kicking" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="reflexes" class="form-label block text-sm font-semibold text-gray-200">Reflexes</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="reflexes" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="speed" class="form-label block text-sm font-semibold text-gray-200">Speed</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="speed" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
             <div>
               <label for="positioning" class="form-label block text-sm font-semibold text-gray-200">Positioning</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="positioning" />
+                <p id="erreurGk" class="text-red-500 text-sm mt-1 hidden">Rating est invalide.</p>
             </div>
           </div>
         </div>
@@ -257,42 +266,49 @@
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="ratingPlayer" />
+                <p id="erreurRatingPlayer"></p>
             </div>
             <div>
               <label for="diving" class="form-label block text-sm font-semibold text-gray-200">Pace</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="pace" />
+                <p id="erreurPace"></p>
             </div>
             <div>
               <label for="handling" class="form-label block text-sm font-semibold text-gray-200">Shooting</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="shooting" />
+                <p id="erreurShooting"></p>
             </div>
             <div>
               <label for="kicking" class="form-label block text-sm font-semibold text-gray-200">Passing</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="passing" />
+                <p id="erreurPassing"></p>
             </div>
             <div>
               <label for="reflexes" class="form-label block text-sm font-semibold text-gray-200">Dribbling</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="dribbling" />
+                <p id="erreurDribbling"></p>
             </div>
             <div>
               <label for="speed" class="form-label block text-sm font-semibold text-gray-200">Defending</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="defending" />
+                <p id="erreurDefending"></p>
             </div>
             <div>
               <label for="positioning" class="form-label block text-sm font-semibold text-gray-200">Physical</label>
               <input type="number"
                 class="form-control mt-2 p-2 w-full border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 id="physical" />
+                <p id="erreurPhysical"></p>
             </div>
           </div>
         </div>
