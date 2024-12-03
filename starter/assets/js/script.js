@@ -27,7 +27,7 @@ let data = JSON.parse(localStorage.getItem("object")) || [];
 
 const ReadAll = () => {
   data = JSON.parse(localStorage.getItem("object")) || [];
-
+  
   let firstGkAdded = false;
   let firstLbAdded = false;
   let firstCbLeftAdded = false;
@@ -936,7 +936,6 @@ const Update = (playerId) => {
 
   if (playerIndex !== -1) {
 
-    // Pre-fill form values
     document.getElementById('name').value = data[playerIndex].name;
     document.getElementById('photo').value = data[playerIndex].photo;
     document.getElementById('position').value = data[playerIndex].position;
@@ -948,7 +947,6 @@ const Update = (playerId) => {
     const divGk = document.getElementById("divGk");
     const divPlayer = document.getElementById("divPlayer");
 
-    // Show specific fields for GK or player
     if (data[playerIndex].position === 'GK') {
       divGk.classList.remove('hidden');
       divPlayer.classList.add('hidden');
@@ -972,11 +970,8 @@ const Update = (playerId) => {
       document.getElementById('physical').value = data[playerIndex].playerRatings.physical || '';
     }
 
-    // Handle the update click with validation
     document.getElementById('update').onclick = () => {
-      // Run validation before updating
       if (validation()) {
-        // Update the player object with new values from the form
         data[playerIndex].name = document.getElementById('name').value;
         data[playerIndex].photo = document.getElementById('photo').value;
         data[playerIndex].position = document.getElementById('position').value;
@@ -1205,3 +1200,17 @@ const validation = () => {
 
   return condition; 
 };
+
+
+// Mis en situation
+//const player = document.querySelectorAll('.parent-player .mt-5');
+// const Values = player.forEach((p) => {console.log(p.textContent)})
+// let tableau = []
+// tableau.push(Values)
+// let sum=0;
+// let moy;
+// for(let i = 0 ; i<tableau.length ; i++){
+//     sum+=tableau[i]
+// }
+// moy = sum/player.length
+// console.log(moy)
